@@ -36,7 +36,7 @@ const PROJECTS = [
 
     new Project(
         'Piano960',
-        'a cross platform audio plugin / virtual instrument (C++) where each MIDI key plays a different random sample',
+        'A cross platform audio plugin / virtual instrument (C++) where each MIDI key plays a different random sample',
         ['C++'],
         ['CMake', 'JUCE Framework'],
         'TP.png',
@@ -55,7 +55,7 @@ const PROJECTS = [
 
     new Project(
         'pychessengine',
-        'a python chess engine with alpha-beta pruning, magic bitboards, MVV-LVA, Zobrist Hashing, and a custom heurstics function for positional evaluation',
+        'A python chess engine with minimax, alpha-beta pruning, magic bitboards, MVV-LVA, Zobrist Hashing, and a custom heurstics function for positional evaluation',
         ['Python'],
         [],
         'TP.png',
@@ -64,7 +64,7 @@ const PROJECTS = [
 
     new Project(
         'www.Poetry-Parser.com',
-        'a React web-app that parses Poetry dependency files to visualize a dependency tree that you can click through',
+        'A React web-app that parses Poetry dependency files to visualize a dependency tree that you can click through',
         ['Node'],
         ['React', 'Firebase', 'Sentry', 'GitHub CI'],
         'TP.png',
@@ -74,7 +74,7 @@ const PROJECTS = [
 
     new Project(
         'Bash Kit',
-        'a python package for defining fun or useful commands that can be called from a terminal prompt, such as the `google` command',
+        'A python package for defining fun or useful commands that can be called from a terminal prompt, such as the `google` command',
         ['Python', 'Bash', 'AppleScript'],
         ['pytest'],
         'TP.png',
