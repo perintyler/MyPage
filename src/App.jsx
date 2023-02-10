@@ -4,29 +4,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import SvgIcon from '@mui/material/SvgIcon';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import { ReactComponent as WebsiteLogo } from './TP.svg';
 import { ReactComponent as GithubIcon } from './github.svg';
-import { CSSTransition } from 'react-transition-group';
 
 import ProjectGrid from './ProjectGrid'
-import { LogoAnimation, FadeInContainer } from './Animations';
-
 import PROJECTS from './Projects';
-
+import { LogoAnimation, FadeInContainer } from './Animations';
 import './App.css';
-
-const RED = "#FF2467";
-
-function LogoBox()
-{
-    return (
-        <Box margin={2}>
-            <img src="TP.png" style={{width: "75px", height: "75px"}}/>
-        </Box>
-    );
-}
 
 function GithubSVG({ width, height, color })
 {
@@ -59,52 +42,62 @@ function GreetingBox()
     )
 }
 
+function IntroAnimationView({ onDone })
+{
+    return (
+        <>
+            <Button onClick={onDone}>Skip</Button>
+            <Box 
+              display="flex" 
+              justifyContent="center" 
+              alignItems="center"
+              direction="row"
+              height="90vh" 
+              width="100vw"
+              children={<LogoAnimation onDone={onDone} />}
+            />
+        </>
+    );
+}
+
+function PortfolioView({ hide })
+{
+    return (
+        <FadeInContainer hide={hide}>
+            <Box 
+              margin={2}
+              children={<img src="TP.png" alt="logo" style={{width: "75px", height: "75px"}} />}
+            />
+            <Box paddingBottom="50px">
+                <GreetingBox />
+                <Box 
+                  paddingTop={1} 
+                  marginLeft={2} 
+                  marginRight={2}
+                  children={<ProjectGrid projects={PROJECTS} />}
+                />
+            </Box>
+            <Box 
+              display="flex" 
+              width="100%" 
+              justifyContent="center"
+              paddingBottom="30px"
+              children={<Link href="https://github.com/perintyler/MyPage">See Source Code</Link>}
+            />
+        </FadeInContainer>
+    );
+}
+
 export default class App extends React.Component {
 
     state = { ready: false };
 
     render()
     {
-        const logoAnimationBox = (
-            <>
-                <Button onClick={()=>this.setState({ready:true})}>Skip</Button>
-                <Box 
-                  display="flex" 
-                  justifyContent="center" 
-                  alignItems="center"
-                  direction="row"
-                  height="90vh" 
-                  width="100vw"
-                  children={<LogoAnimation onDone={()=>this.setState({ready:true})} />}
-                />
-            </>
-        );
+        const homeView = !this.state.ready 
+                       ? (<IntroAnimationView onDone={()=>this.setState({ready: true})} />)
+                       : (<PortfolioView hide={!this.state.ready} />);
 
-        const mainViewBox = (
-            <FadeInContainer hide={!this.state.ready}>
-                <Box 
-                  margin={2}
-                  children={<img src="TP.png" style={{width: "75px", height: "75px"}} />}
-                />
-                <Box paddingBottom="50px">
-                    <GreetingBox />
-                    <Box 
-                      paddingTop={1} 
-                      marginLeft={2} 
-                      marginRight={2}
-                      children={<ProjectGrid projects={PROJECTS} />}
-                    />
-                </Box>
-                <Box 
-                  display="flex" 
-                  width="100%" 
-                  justifyContent="center"
-                  paddingBottom="30px"
-                  children={<Link href="https://github.com/perintyler/MyPage">See Source Code</Link>}
-                />
-            </FadeInContainer>
-        );
-
-        return <div className="App">{ !this.state.ready ? logoAnimationBox : mainViewBox }</div>;
+        return <div className="App">{homeView}</div>;
     }
 }
