@@ -34,16 +34,24 @@ export function LogoAnimation({onDone})
 export function FadeInContainer(props)
 {
     const animationReference = useRef(null);
+    
+    const container = (
+      <div 
+        ref={animationReference} 
+        style={{width: "100%", height: "100%"}}
+        children={props.children}
+      />
+    );
 
     return (
         <CSSTransition 
-          mountOnEnter 
+          mountOnEnter
           in={!props.hide} 
           appear={!props.hide} 
           timeout={1000} 
           classNames="main-view"
           nodeRef={animationReference}
-          children={<div ref={animationReference}>{props.children}</div>}
+          children={container}
         />
     );
 }
