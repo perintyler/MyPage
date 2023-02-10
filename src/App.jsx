@@ -70,7 +70,7 @@ export default class App extends React.Component {
               display="flex" 
               justifyContent="center" 
               alignItems="center"
-              height="60vw" 
+              height="100vh" 
               width="100vw"
               children={<LogoAnimation onDone={()=>this.setState({ready:true})} />}
             />

@@ -1,10 +1,10 @@
 .App {
-  width: "100%";
-  min-height: "100%";
+    width: "100%";
+    min-height: "100%";
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 .Project-Grid-Item {
@@ -15,9 +15,6 @@
 .Project-Grid-Item:hover {
     border-color: #FF2467;
     color: #FF2467;
-}
-
-.Project-Preview-Backdrop {
 }
 
 .Skill-Grid-Item {
@@ -32,34 +29,38 @@
 }
 
 .logo-animation-appear {
-  width: 1%;
+    width: 1vw;
 }
 
 .logo-animation-appear-active {
-  transform: scale(60);
-  transition: transform 1750ms ease;
+    transform: scale(60);
+    transition: transform 1750ms ease;
 }
 
 .logo-animation-enter {
-  width: 60%;
-  opacity: 1;
+    width: 60vw;
+    opacity: 1;
 }
 
 .logo-animation-exit {
-  opacity: 1;
-
+    width: 60vw;
+    opacity: 1;
 }
+
 .logo-animation-exit-active {
-  opacity: 0;
-  transition: opacity 3000ms ease-in;
+    width: 60vw;
+    opacity: 0;
+    transition: opacity 3000ms ease-in;
 }
 
 .main-view-appear {
-  opacity: 0;
+    width: 60vw;
+    opacity: 0;
 }
 
 .main-view-appear-active {
-  opacity: 1;
-  transition: opacity 1000ms ease-in;
+    width: 60vw;
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
 }
 

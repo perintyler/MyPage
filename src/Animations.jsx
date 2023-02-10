@@ -8,6 +8,11 @@ export function LogoAnimation({onDone})
   const [isAnimating, setAnimationState] = useState(true);
   const [imageSource, setImageSource] = useState('TP.png');
   
+  const switchToGIF = () => {
+      setImageSource('TP.gif');
+      setAnimationState(false);
+  };
+
   const nodeRef = useRef(null);
 
   return (
@@ -19,7 +24,7 @@ export function LogoAnimation({onDone})
         in={isAnimating}
         timeout={{appear:1750, enter: 2000, exit: 3000}}
         classNames="logo-animation" 
-        onEntered={ () => {setImageSource('TP.gif'); setAnimationState(false);} }
+        onEntered={switchToGIF}
         onExited={onDone}
         children={<img src={imageSource} ref={nodeRef} />}
       />
