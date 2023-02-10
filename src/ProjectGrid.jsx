@@ -96,7 +96,7 @@ export default function ProjectGrid({ projects })
         <Grid container
           rowSpacing={2}
           columnSpacing={1}
-          justifyContent="center" 
+          justifyContent="flex-start" 
           alignItems="stretch"
           children={projects.map((project)=><ProjectGridItem project={project} key={project.name}/>)}
         />

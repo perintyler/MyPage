@@ -66,14 +66,18 @@ export default class App extends React.Component {
     render()
     {
         const logoAnimationBox = (
-            <Box 
-              display="flex" 
-              justifyContent="center" 
-              alignItems="center"
-              height="100vh" 
-              width="100vw"
-              children={<LogoAnimation onDone={()=>this.setState({ready:true})} />}
-            />
+            <>
+                <Button onClick={()=>this.setState({ready:true})}>Skip</Button>
+                <Box 
+                  display="flex" 
+                  justifyContent="center" 
+                  alignItems="center"
+                  direction="row"
+                  height="90vh" 
+                  width="100vw"
+                  children={<LogoAnimation onDone={()=>this.setState({ready:true})} />}
+                />
+            </>
         );
 
         const mainViewBox = (
@@ -82,7 +86,7 @@ export default class App extends React.Component {
                   margin={2}
                   children={<img src="TP.png" style={{width: "75px", height: "75px"}} />}
                 />
-                <Box paddingBottom="20px">
+                <Box paddingBottom="50px">
                     <GreetingBox />
                     <Box 
                       paddingTop={1} 
@@ -91,6 +95,13 @@ export default class App extends React.Component {
                       children={<ProjectGrid projects={PROJECTS} />}
                     />
                 </Box>
+                <Box 
+                  display="flex" 
+                  width="100%" 
+                  justifyContent="center"
+                  paddingBottom="30px"
+                  children={<Link href="https://github.com/perintyler/MyPage">See Source Code</Link>}
+                />
             </FadeInContainer>
         );
 
