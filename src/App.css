@@ -1,38 +1,65 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: "100%";
+  min-height: "100%";
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Project-Grid-Item {
+    border-color: black;
+    color: black;
 }
+
+.Project-Grid-Item:hover {
+    border-color: #FF2467;
+    color: #FF2467;
+}
+
+.Project-Preview-Backdrop {
+}
+
+.Skill-Grid-Item {
+    border-radius: 4px;
+    border: 2px solid #92eac0;
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+    font-size: .85rem;
+    color: #525f7f;
+}
+
+.logo-animation-appear {
+  width: 1%;
+}
+
+.logo-animation-appear-active {
+  transform: scale(60);
+  transition: transform 1750ms ease;
+}
+
+.logo-animation-enter {
+  width: 60%;
+  opacity: 1;
+}
+
+.logo-animation-exit {
+  opacity: 1;
+
+}
+.logo-animation-exit-active {
+  opacity: 0;
+  transition: opacity 3000ms ease-in;
+}
+
+.main-view-appear {
+  opacity: 0;
+}
+
+.main-view-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
