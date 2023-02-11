@@ -6,7 +6,7 @@ import { CSSTransition } from 'react-transition-group';
 export function LogoAnimation({onDone})
 {
   const [isAnimating, setAnimationState] = useState(true);
-  const [imageSource, setImageSource] = useState('TP.png');
+  const [imageSource, setImageSource] = useState('TP.svg');
   
   const switchToGIF = () => {
       setImageSource('TP.gif');
