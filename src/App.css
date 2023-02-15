@@ -29,12 +29,17 @@
 }
 
 .logo-animation-appear {
-    width: 1vw;
+/*    width: 1vw;*/
+    width: 60vw;
+    opacity: 0;
 }
 
 .logo-animation-appear-active {
-    transform: scale(60);
-    transition: transform 1750ms ease;
+/*    transform: scale(60);*/
+/*    transition: transform 1750ms ease;*/
+    width: 60vw;
+    opacity: 1;
+    transition: opacity 900ms ease-in;
 }
 
 .logo-animation-enter {
@@ -50,7 +55,7 @@
 .logo-animation-exit-active {
     width: 60vw;
     opacity: 0;
-    transition: opacity 3000ms ease-in;
+    transition: opacity 2500ms ease-in;
 }
 
 .main-view-appear {

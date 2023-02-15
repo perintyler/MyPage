@@ -22,7 +22,7 @@ export function LogoAnimation({onDone})
         appear={true}
         nodeRef={nodeRef} 
         in={isAnimating}
-        timeout={{appear:1750, enter: 2000, exit: 3000}}
+        timeout={{appear: 900, enter: 2000, exit: 2500}}
         classNames="logo-animation" 
         onEntered={switchToGIF}
         onExited={onDone}

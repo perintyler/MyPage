@@ -27,17 +27,10 @@ function GreetingBox()
 {
     return (
         <Box margin={4} paddingBottom={2} sx={{textAlign: "center"}}>
-            <Typography variant="h2" paddingLeft={1}><b>Hi. </b>👋</Typography>
-            <Typography variant="h1"><b>I'm Tyler.</b></Typography>
+            <Typography variant="h2" paddingLeft={1}><b>Hi 👋</b></Typography>
             <Typography variant="h4" paddingTop={4} paddingBottom={5}>
                 You can reach me at <Link>tyler@perin.email</Link>
             </Typography>
-            <a href="https://github.com/perintyler" style={{textDecoration: "none"}}>
-                <Button variant="outlined" sx={{borderColor: "#551A8B", padding: "15px"}}>
-                    <GithubSVG width={36} height={36} color="#551A8B" /> 
-                    <Typography paddingLeft={1} color="#551A8B">github.com/perintyler</Typography>
-                </Button>
-            </a>
         </Box>
     )
 }
@@ -90,7 +83,7 @@ function PortfolioView({ hide })
 
 export default class App extends React.Component {
 
-    state = { ready: false };
+    state = { ready: true };
 
     render()
     {
