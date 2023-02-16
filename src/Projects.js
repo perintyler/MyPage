@@ -124,9 +124,15 @@ const PROJECTS = [
     )
 ];
 
-function getProjects(sortByDate=false, sortByCoolness=false, onlyProjectsWithWebsites=false)
+export default function getProjects(sortByDate=false, onlyProjectsWithWebsites=false)
 {
-    return PROJECTS;
-}
+    var projects = onlyProjectsWithWebsites
+                 ? PROJECTS.filter((project) => project.websiteUrl !== null)
+                 : [...PROJECTS];
 
-export default PROJECTS;
+    if (sortByDate) {
+        projects.sort((project1, project2) => project1.year.localeCompare(project2.year));
+    }
+
+    return projects;
+}
