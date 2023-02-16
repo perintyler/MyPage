@@ -74,7 +74,7 @@ const PROJECTS = [
 
     new Project(
         'Poetry File Parser (www.poetryparser.com)',
-        'A React web-app that parses Poetry dependency files to visualize a dependency tree that you can click through',
+        'A React web-app that parses Poetry files to visualize a dependency tree that you can click through',
         2023,
         ['Node'],
         ['React', 'Firebase', 'Sentry', 'GitHub CI'],
