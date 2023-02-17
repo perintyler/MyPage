@@ -10,23 +10,8 @@ import { ReactComponent as GithubIcon } from './github.svg';
 import ProjectGrid from './ProjectGrid'
 import getProjects from './Projects';
 import COLORS from './Colors';
-import { LogoAnimation, FadeInContainer } from './Animations';
+import { FadeInContainer } from './Animations';
 import './App.css';
-
-function GithubSVG({ width, height, color, hoverColor })
-{
-    return (
-        <Box width={width} height={height} display="flex" justifyContent="center">
-            <SvgIcon component={GithubIcon} sx={{
-                color: color, 
-                "&:hover": {color: hoverColor}, 
-                textAlign: "center", 
-                width: width, 
-                height: height
-            }} />
-        </Box>
-    );
-}
 
 function GreetingBox()
 {
@@ -40,77 +25,66 @@ function GreetingBox()
     )
 }
 
-function IntroAnimationView({ onDone })
-{
-    return (
-        <>
-            <Button onClick={onDone}>Skip</Button>
-            <Box 
-              display="flex" 
-              justifyContent="center" 
-              alignItems="center"
-              direction="row"
-              height="90vh" 
-              width="100vw"
-              children={<LogoAnimation onDone={onDone} />}
-            />
-        </>
-    );
-}
-
 function HeaderBar()
 {
+    const websiteLogoBox = (
+        <Box margin={2}>
+            <img src="TP.png" alt="logo" width="120px" height="120px" />
+        </Box>
+    );
+
+    const githubIconSize = "50px"; // width and height
+
+    const githubIconStyle = {
+        color: COLORS.purple, 
+        "&:hover": {color: COLORS.blue}, 
+        textAlign: "center", 
+        width: githubIconSize, 
+        height: githubIconSize
+    };
+
+    const githubSVGBox = (
+        <Box width={githubIconSize} height={githubIconSize} display="flex" justifyContent="center">
+            <a href="https://github.com/perintyler">
+                <SvgIcon component={GithubIcon} sx={githubIconStyle}/>
+            </a>
+        </Box>
+    );
+
     return (
         <Grid container width="100%" direction="row" alignItems="flex-start" justifyContent="space-between" >
-            <Grid item justify="flex-start"> 
-                <Box
-                  margin={2}
-                  children={<img src="TP.png" alt="logo" width="120px" height="120px" />}
-                />
-            </Grid>
-            <Grid item justify="flex-end" margin={1} paddingTop={1}> 
-                <a href="https://github.com/perintyler">
-                    <GithubSVG width="50px" height="50px" color={COLORS.purple} hoverColor={COLORS.blue} />
-                </a>
-            </Grid>
+            <Grid item 
+              justify="flex-start"
+              children={websiteLogoBox}
+            />
+            <Grid item 
+              justify="flex-end" 
+              margin={1} 
+              paddingTop={1}
+              children={githubSVGBox}
+            />
         </Grid>
     );
 }
-function PortfolioView({ hide })
+
+export default function App()
 {
     return (
-        <FadeInContainer hide={hide}>
-            <HeaderBar />
-            <Box paddingBottom="50px">
-                <GreetingBox />
-                <Box 
-                  paddingTop={1} 
-                  marginLeft={2} 
-                  marginRight={2}
-                  children={<ProjectGrid projects={getProjects()} />}
-                />
-            </Box>
-            <Box 
-              display="flex" 
-              width="100%" 
-              justifyContent="center"
-              paddingBottom="30px"
-              children={<Link href="https://github.com/perintyler/MyPage">See Source Code</Link>}
-            />
-        </FadeInContainer>
+        <div className="App">
+            <FadeInContainer hide={false}>
+                <HeaderBar />
+                
+                <Box paddingBottom="50px">
+                    <GreetingBox />
+                    <Box paddingTop={1} marginLeft={2} marginRight={2}>
+                        <ProjectGrid projects={getProjects()} />
+                    </Box>
+                </Box>
+
+                <Box display="flex" width="100%" justifyContent="center" paddingBottom="30px">
+                    <Link href="https://github.com/perintyler/MyPage">See Source Code</Link>
+                </Box>
+            </FadeInContainer>
+        </div>
     );
-}
-
-export default class App extends React.Component {
-
-    state = { ready: true };
-
-    render()
-    {
-        const homeView = !this.state.ready 
-                       ? (<IntroAnimationView onDone={()=>this.setState({ready: true})} />)
-                       : (<PortfolioView hide={!this.state.ready} />);
-
-        return <div className="App">{homeView}</div>;
-    }
 }
