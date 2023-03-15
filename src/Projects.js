@@ -24,8 +24,8 @@ const PROJECTS = [
         'Piano960',
         'A cross platform audio plugin / virtual instrument (C++) where each MIDI key plays a different random sample',
         2023,
-        ['C++'],
-        ['CMake', 'JUCE Framework'],
+        ['C++', 'Python', 'Bash'],
+        ['CMake', 'TensorFlow', 'GitHub CI'],
         'TP.png',
         'https://github.com/perintyler/Piano960'
     ),
