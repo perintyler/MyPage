@@ -30,15 +30,15 @@ function ProjectBox({ project, preview })
     const projectDescription = <Typography>{project.description}</Typography>;
 
     const githubLink = (
-        <Button><Link href={project.repoUrl}>
-            Github Repo
-        </Link></Button>
+        <Button>
+            <Link href={project.repoUrl}>Github Repo</Link>
+        </Button>
     );
 
     const websiteLink = (
-        <Link marginLeft={4} marginRight={4} href={project.websiteUrl}>
-            <Button>Website</Button>
-        </Link>
+        <Button marginLeft={4} marginRight={4}>
+            <Link href={project.websiteUrl}>Website</Link>
+        </Button>
     );
 
     const skillGrid = <SkillGrid languages={project.languages} frameworks={project.frameworks} />;
