@@ -21,7 +21,7 @@ class Project
 const PROJECTS = [
 
     new Project(
-        'Frets & Kets',
+        'Frets & Keys 🎸 ↔️ 🎹',
         'A web-app to visualize the differences between a fretboard and a keyboard',
         2023,
         ['Javascript'],
