@@ -21,6 +21,17 @@ class Project
 const PROJECTS = [
 
     new Project(
+        'Frets & Kets',
+        'A web-app to visualize the differences between a fretboard and a keyboard',
+        2023,
+        ['Javascript'],
+        ['React', 'Firebase'],
+        'TP.png',
+        'https://github.com/perintyler/FretsAndKeys',
+        'https://fretsandkeys.xyz/'
+    ),
+
+    new Project(
         'Piano960',
         'A cross platform audio plugin / virtual instrument (C++) where each MIDI key plays a different random sample',
         2023,
