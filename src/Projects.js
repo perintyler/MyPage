@@ -32,13 +32,34 @@ const PROJECTS = [
     ),
 
     new Project(
-        'Piano960',
-        'A cross platform audio plugin / virtual instrument (C++) where each MIDI key plays a different random sample',
+        'Athlete',
+        'A Shopify app for syncing Etsy orders.',
+        2023,
+        ['Ruby on Rails', 'Javascript'],
+        ['PostgreSQL', 'Redis'],
+        'TP.png',
+        'https://www.sellwithathlete.com/',
+        'https://www.sellwithathlete.com/'
+    ),
+
+    new Project(
+        'MySampler',
+        'A cross platform audio plugin / virtual keyboard (C++) where each MIDI key plays a different random sample',
         2023,
         ['C++', 'Python', 'Bash'],
-        ['CMake', 'TensorFlow', 'GitHub CI'],
+        ['CMake', 'TensorFlow', 'CI'],
         'TP.png',
-        'https://github.com/perintyler/Piano960'
+        'https://github.com/perintyler/MySampler'
+    ),
+
+    new Project(
+        'AutoMusicVideo',
+        'Generates music videos with nothing but an MP3 file using stable diffusion.',
+        2023,
+        ['Python'],
+        ['Stable Diffusion', 'GCP Storage'],
+        'TP.png',
+        'https://github.com/perintyler/AutoMusicVideo',
     ),
 
     new Project(
