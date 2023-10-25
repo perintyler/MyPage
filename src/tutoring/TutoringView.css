@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bree+Serif&family=Exo+2&family=Kaushan+Script&family=Playfair+Display+SC:wght@700&display=swap');
+
+#tutoring-view-header-box {
+
+/*  color: white;*/
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+#tutoring-view > * {
+}
+
+#tutoring-view-header-box {
+/*  width: 60%;*/
+}
+
+#tutoring-view-title-box {
+  height: 230px;
+  border-top: 3px;
+  border-bottom: 3px;
+  border-left: 0;
+  border-right: 0;
+  border-color: black;
+  border: solid;
+}
+
+#tutoring-view h1 {
+/*  
+  font-family: 'Alfa Slab One', serif;
+  font-family: 'Bree Serif', serif;
+  font-family: 'Exo 2', sans-serif;
+  font-family: 'Kaushan Script', cursive;
+  font-family: 'Playfair Display SC', serif;
+*/  
+  font-size: 2rem;
+  margin: 0;
+  line-height: 50px;
+  margin-left: 18px;
+  padding-bottom: 20px;
+}
+
+#tutoring-view-title-box:nth-child(1)
+{
+  padding-left: 10px;
+}
+
+#contact-form-box {
+  background-color: gray;
+/*  width: 40%;*/
+  height: 100%;
+}
+
+#contact-form-box div {
+  display: block;
+}
+
+.available-services-box {
+/*  display: flex;
+  justify-content: center;*/
+  margin-left: 10%;
+}
