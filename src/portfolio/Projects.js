@@ -33,7 +33,7 @@ const PROJECTS = [
 
     new Project(
         'Athlete',
-        'A Shopify app for syncing Etsy orders.',
+        'A Shopify app for syncing Etsy orders',
         2023,
         ['Ruby on Rails', 'Javascript'],
         ['PostgreSQL', 'Redis'],
@@ -54,7 +54,7 @@ const PROJECTS = [
 
     new Project(
         'AutoMusicVideo',
-        'Generates music videos with nothing but an MP3 file using stable diffusion.',
+        'Generates music videos with nothing but an MP3 file using stable diffusion',
         2023,
         ['Python'],
         ['Stable Diffusion', 'GCP Storage'],
@@ -142,7 +142,7 @@ const PROJECTS = [
         ['Python'],
         ['Tensorflow'],
         'TP.png',
-        'https://github.com/perintyler/tpkit'
+        'https://github.com/perintyler/nba_prediction'
     ),
 
     new Project(
