@@ -1,0 +1,54 @@
+#portfolio-view {
+  margin: 8px;
+}
+
+.Project-Grid-Item {
+    border-color: black;
+    color: black;
+}
+
+.Project-Grid-Item:hover {
+    border-color: #FF2467;
+    color: #FF2467;
+}
+
+.Skill-Grid-Item {
+    border-radius: 4px;
+    border: 2px solid #92eac0;
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+    font-size: .85rem;
+    color: #525f7f;
+}
+
+.logo-animation-appear {
+/*    width: 1vw;*/
+    width: 60vw;
+    opacity: 0;
+}
+
+.logo-animation-appear-active {
+/*    transform: scale(60);*/
+/*    transition: transform 1750ms ease;*/
+    width: 60vw;
+    opacity: 1;
+    transition: opacity 900ms ease-in;
+}
+
+.logo-animation-enter {
+    width: 60vw;
+    opacity: 1;
+}
+
+.logo-animation-exit {
+    width: 60vw;
+    opacity: 1;
+}
+
+.logo-animation-exit-active {
+    width: 60vw;
+    opacity: 0;
+    transition: opacity 2500ms ease-in;
+}
