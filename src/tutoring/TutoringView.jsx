@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import TutoringServicesList from './TutoringServicesList'
 import SignupForm from './SignupForm';
-import { newSignupRequest } from '../ContactApi'
+import { newSignup } from '../EmailApi'
 import { FadeInContainer } from '../Animations'
 import './NumberedList.css';
 import './TutoringView.css';
@@ -47,7 +47,7 @@ export default function TutoringView()
     var closeSignupForm = () => setIsSigningUp(false);
 
     var completeSignup = (signupInfo) => { 
-        newSignupRequest(signupInfo); 
+        newSignup(signupInfo); 
         closeSignupForm(); 
     };
 
