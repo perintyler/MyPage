@@ -1,32 +1,35 @@
 /*** ContactForm.jsx ***/
 
 import { useState } from "react";
-import { TextField, Button, Typography, Box } from "@mui/material";
+import { TextField, Button, Box } from "@mui/material";
 
-export default function ContactForm({ title, onComplete }) 
+class ContactInfo {
+  constructor(name, email, message, phoneNumber=null) {
+    this.name = name;
+    this.email = email;
+    this.message = message;
+    this.phoneNumber = phoneNumber;
+  }
+
+  pretty() {
+    return `<ContactInfo name='${this.name}' email='${this.email}' message='${this.message}' phoneNumber='${this.phoneNumber}'>`
+  }
+}
+
+export default function ContactForm({ title, onComplete, buttonTitle }) 
 {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [phoneNumber, setPhoneNumber] = useState(null);
-  const [message, setMessage] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (name === null) {
-      console.alert("'Name' is required. Fill in the missing field, then try again.")
-    } else if (email === null) {
-      console.alert("'Email' is required. Fill in the missing field, then try again.")
-    } else if (message === null) {
-      console.alert("'Message' is required. Fill in the missing field, then try again.")
-    } else {
-      onComplete(name, email, phoneNumber, message);
-    }
+    onComplete(new ContactInfo(name, email, message || null, phoneNumber || null));
   };
 
   return (
-    <Box sx={{ maxWidth: 600, p: 2 }}>
-      <Typography variant="h4" align="center" mb={2}>{ title != null ? title : "" }</Typography>
+    <Box sx={{ maxWidth: 600 }} pb={2} className="contact-form">
       <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
@@ -47,8 +50,8 @@ export default function ContactForm({ title, onComplete })
         />
         <TextField
           fullWidth
-          label="Phone # (optional)"
-          value={email}
+          label="Phone Number"
+          value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           margin="normal"
         />
@@ -60,11 +63,8 @@ export default function ContactForm({ title, onComplete })
           margin="normal"
           multiline
           rows={4}
-          required
         />
-        <Button variant="contained" type="submit" sx={{ mt: 2 }}>
-          Submit
-        </Button>
+        <Button fullWidth={true} variant="contained" type="submit" sx={{ mt: 2 }}>{buttonTitle || "submit"}</Button>
       </form>
     </Box>
   );
