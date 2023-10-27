@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10%;
+  padding-top: 36px;
+  padding-bottom: 36px;
 }
 
 .signup-step-header {

@@ -179,8 +179,8 @@ export default function SignupForm({ onComplete, onCancel })
 
     return (
       <Box width="100%" display="flex" flexDirection="column" className="signup-form" pt="100px">
-        <Stepper steps={SIGNUP_STEPS.map(step => ({label: step}))} activeStep={stepNumber} />
         <SignupStep signupInfo={signupInfo} stepForward={stepForward} stepBack={stepBack} />
+        <Stepper steps={SIGNUP_STEPS.map(step => ({label: step}))} activeStep={stepNumber} />
       </Box>
     );
 }
