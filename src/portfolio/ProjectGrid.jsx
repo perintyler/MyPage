@@ -36,7 +36,7 @@ function ProjectBox({ project, preview })
     );
 
     const websiteLink = (
-        <Button marginLeft={4} marginRight={4}>
+        <Button>
             <Link href={project.websiteUrl}>Website</Link>
         </Button>
     );
@@ -71,7 +71,7 @@ function ProjectGridItem({ project })
     const preview = (
         <Dialog open={previewIsOpen}>
             <ClickAwayListener onClickAway={closePreview}>
-                <img src="TP.png" />
+                <img src="TP.png" alt="demo" />
             </ClickAwayListener>
         </Dialog>
     );

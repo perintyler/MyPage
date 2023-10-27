@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bree+Serif&family=Exo+2&family=Kaushan+Script&family=Playfair+Display+SC:wght@700&display=swap');
+
+.tutoring-view-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 616px) {
+  .tutoring-view-container {
+    height: fit-content;
+    padding-bottom: 24px;
+  }
+
+}
+
+#tutoring-view-header-box {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#tutoring-view-title-box {
+  height: 230px;
+  border-top: 3px;
+  border-bottom: 3px;
+  border-left: 0;
+  border-right: 0;
+  border-color: black;
+  border: solid;
+}
+
+#tutoring-view h1 {
+  font-size: 2rem;
+  margin: 0;
+  line-height: 50px;
+  margin-left: 18px;
+  padding-bottom: 20px;
+}
+
+#tutoring-view-title-box:nth-child(1)
+{
+  padding-left: 10px;
+}
+
+#contact-form-box {
+  background-color: gray;
+  height: 100%;
+}
+
+#contact-form-box div {
+  display: block;
+}
+
+#tutoring-services-list-title {
+  padding-bottom: 20px;
+  margin-top: 0;
+}
+
+.signup-button-container {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.signup-button-container > button {
+  height: 50px;
+  width: 100%;
+  borderRadius: 10px;
+  font-size: 1.6;
+  font-weight: bold;
+}
+
+.tutoring-services-list {
+  display: flex;
+  justify-content: center;
+  margin-left: 6px;
+  margin-right: 6px;
+  width: calc(100% - 12px);
+  margin-top: 145px;
+}
+
+.tutoring-services-list > div {
+  padding: 32px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.82);
+}
+
+
+
