@@ -16,16 +16,15 @@ class ContactInfo {
   }
 }
 
-export default function ContactForm({ title, onComplete, buttonTitle }) 
+export function SimpleContactForm({ title, onComplete, buttonTitle, children, msgIsRequired }) 
 {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onComplete(new ContactInfo(name, email, message || null, phoneNumber || null));
+    onComplete(new ContactInfo(name, email, message || null));
   };
 
   return (
@@ -48,14 +47,7 @@ export default function ContactForm({ title, onComplete, buttonTitle })
           type="email"
           required
         />
-        <TextField
-          fullWidth
-          label="Phone Number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          margin="normal"
-          required
-        />
+        {children}
         <TextField
           fullWidth
           label="Message"
@@ -63,10 +55,39 @@ export default function ContactForm({ title, onComplete, buttonTitle })
           onChange={(e) => setMessage(e.target.value)}
           margin="normal"
           multiline
-          rows={4}
+          minRows={6}
+          required={msgIsRequired || false}
         />
         <Button fullWidth={true} variant="contained" type="submit" sx={{ mt: 2 }}>{buttonTitle || "submit"}</Button>
       </form>
     </Box>
   );
 }
+
+/**
+ ** includes more inptut fields than `SimpleContactForm`, such as phone number input
+ **/
+export function ExtendedContactForm({ title, onComplete, buttonTitle, children, msgIsRequired })
+{
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  return (
+    <SimpleContactForm
+      title={title}
+      onComplete={onComplete}
+      buttonTitle={buttonTitle}
+      msgIsRequired={msgIsRequired}
+    >
+      <TextField
+        fullWidth
+        label="Phone Number"
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        margin="normal"
+        required
+      />
+      {children}
+    </SimpleContactForm>
+  );
+}
+
