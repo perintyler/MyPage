@@ -1,5 +1,5 @@
 
-export function sendContact(contactInfo) {
+export function newContact(contactInfo) {
 
 }
 
