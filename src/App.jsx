@@ -1,42 +1,40 @@
 import * as React from 'react';
 import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate
+  Navigate,
+  Routes, 
+  Route
 } from "react-router-dom";
 
 import PortfolioView from './portfolio/PortfolioView';
 import TutoringView from './tutoring/TutoringView';
-import FreelanceView from './freelance/FreelanceView';
+import ContactView from './ContactView';
 import CircularMenu from './CircularMenu';
 
 import './App.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/portfolio",
-    element: <PortfolioView />
-  }, 
-  {
-    path: "/tutoring",
-    element: <TutoringView />
-  },
-  {
-    path: "/freelance",
-    element: <FreelanceView />
-  },
-  {
-    path: "*",
-    element: <Navigate to="/portfolio" replace />
-  }
-]);
+const ROUTES = {
+  '/portfolio': PortfolioView,
+  '/contact': ContactView,
+  '/tutoring': TutoringView
+};
 
-export default function Portfolio()
+export default function App()
 {
+    var allowedRoutes = Object.keys(ROUTES).map((path) => {
+        var RouteView = ROUTES[path];
+        return <Route key={path} path={path} element={<RouteView />} />;
+    });
+
+    var disallowedRouteRedirect = (
+        <Route path="*" element={
+            <Navigate to="/portfolio" replace />
+        }/>
+    );
+
     return (
         <div className="App">
             <CircularMenu />
-            <RouterProvider router={router} />
+            <Routes>{allowedRoutes}{disallowedRouteRedirect}</Routes>
         </div>
     );
 }
