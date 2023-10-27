@@ -1,0 +1,121 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+body {
+	background: #fffdf5;
+}
+
+#title-container {
+  border-bottom: 1px solid #dedede;
+  border-top: 1px solid #dedede;
+  margin-bottom: 5px;
+}
+
+#title-container > h1 {
+  margin: 2px;
+  padding-left: 4px;
+  font-size: 52px;
+}
+
+#date-container {
+    font-size: 12px;
+    padding-left: 3px
+    margin-bottom: 15px;
+}
+
+#name-and-email-table-container {
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: solid;
+}
+
+#name-and-email-table-container > table {
+  margin: 5px;
+}
+
+th, td {
+  font-size: 18px;
+}
+
+th {
+  font-weight: lighter;
+}
+
+td {
+  width: 200px;
+  font-weight: bold;
+}
+
+#message-container {
+  padding: 18px;
+  color: #3f3f5a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+blockquote {
+  font-weight: 100;
+  font-size: 26px;
+  max-width: 600px;
+  line-height: 1.4;
+  position: relative;
+  margin: 0;
+  padding: .5rem;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #f1efe6;
+  font-size: 8rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+blockquote:before {
+  content: '“';
+  left: -5rem;
+  top: -2rem;
+}
+
+blockquote:after {
+  content: '”';
+  right: -5rem;
+  bottom: 1rem;
+}
+
+cite {
+  line-height: 3;
+  text-align: left;
+}
+
+</style>
+
+<div id="title-container">
+    <h1>New Message</h1>
+</div>
+
+<div id="date-container">
+    Date: {{date}}
+</div>
+
+<div id="name-and-email-table-container">
+    <table>
+    <tr>
+        <th>&lt;&gt; Name:</th>
+        <td>{{name}}</td>
+    </tr>
+    <tr>
+        <th>&lt;&gt; Email:</th>
+        <td>{{email}}</td>
+    </tr>
+    </table>
+</div>
+
+<div id="message-container">
+    <blockquote>{{message}}</blockquote>
+    <cite>{{name}}</cite>
+</div>
+

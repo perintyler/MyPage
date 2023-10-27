@@ -16,7 +16,8 @@ const COLORS = {
     tearose       : "#EEC0C6",
     timberwolf    : "#EADEDA",
     burntumber    : "#823329",
-    cordovan      : "#8A3033"
+    cordovan      : "#8A3033",
+    goldengate    : "#EB4511"
 };
 
 export default COLORS;

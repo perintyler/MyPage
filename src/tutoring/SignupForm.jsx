@@ -1,33 +1,51 @@
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Slide from '@mui/material/Slide';
+import CircularProgress from '@mui/material/CircularProgress';
 import { Stepper } from 'react-form-stepper';
-import { ExtendedContactForm } from '../ContactForms';
+import { ContactForm } from '../ContactForm';
+import EmailApi from '../EmailApi'
 import './SignupForm.css';
 
 const MINIMUM_GRADE = 6;
 const MAXIMUM_GRADE = 12; // inclusive
-const SIGNUP_STEPS = ["Select Grade", "Select Course", "Contact Info", "Success"];
+const SIGNUP_STEPS = ["Select Grade", "Select Course", "Contact Info", "Done"];
 
 class SignupInfo 
 {
     constructor() {
-        this.service = null;
+        this.course = null;
         this.grade = null;
         this.contactInfo = null;
     }
 
-    isValid() {
-        return this.service != null && this.grade != null && this.contactInfo != null;
+    is_valid() 
+    {
+        return this.course != null && this.grade != null && this.contactInfo != null;
     }
 
-    pretty() {
-        return `<SignupInfo service='${this.service}' grade='${this.grade}' contactInfo=${this.contactInfo.pretty()}>`
+    pretty() 
+    {
+        return `<SignupInfo service='${this.course}' grade='${this.grade}' contactInfo=${this.contactInfo.pretty()}>`
+    }
+
+    to_object()
+    {
+        return { 
+            course: this.course,
+            grade: this.grade,
+            ...this.contactInfo.to_object()
+        }
+    }
+
+    to_json()
+    {
+        return JSON.stringify(this.to_object());
     }
 }
 
@@ -90,22 +108,22 @@ function GradeInputBox({ signupInfo, stepBack, stepForward })
  **/
 function CourseInputBox({ signupInfo, stepBack, stepForward })
 {
-    function SelectTutoringServiceButton({ service }) {
-        return <SignupFormButton title={service} onClick={()=>{
-            signupInfo.current.service = service; 
+    function SelectTutoringServiceButton({ course }) {
+        return <SignupFormButton title={course} onClick={()=>{
+            signupInfo.current.course = course; 
             stepForward();
         }} />;
     }
 
     return (
         <SignupStepContainer title="What course do you need tutoring for?" stepBack={stepBack}>
-            <SelectTutoringServiceButton service="AP Computer Science" />
-            <SelectTutoringServiceButton service="Beginner Python" />
-            <SelectTutoringServiceButton service="Intermediate Python" />
-            <SelectTutoringServiceButton service="Data Structures & Algorithms" />
-            <SelectTutoringServiceButton service="Web Design" />
-            <SelectTutoringServiceButton service="Personalized Curiculum" />
-            <SelectTutoringServiceButton service="Other" />
+            <SelectTutoringServiceButton course="AP Computer Science" />
+            <SelectTutoringServiceButton course="Beginner Python" />
+            <SelectTutoringServiceButton course="Intermediate Python" />
+            <SelectTutoringServiceButton course="Data Structures & Algorithms" />
+            <SelectTutoringServiceButton course="Web Design" />
+            <SelectTutoringServiceButton course="Personalized Curiculum" />
+            <SelectTutoringServiceButton course="Other" />
         </SignupStepContainer>
     );
 }
@@ -122,7 +140,11 @@ function ContactInputBox({ signupInfo, stepBack, stepForward })
           subtitle="Add a message if you there's anything else you'd like to tell me"
           margin="0px"
         >
-            <ExtendedContactForm buttonTitle="Complete Signup" msgIsRequired={false} onComplete={(contactInfo) => {
+            <ContactForm 
+              buttonTitle="Complete Signup" 
+              msgIsRequired={false} 
+              phoneIsRequired={true}
+              onComplete={(contactInfo) => {
                 signupInfo.current.contactInfo = contactInfo;
                 stepForward();
             }} />
@@ -135,32 +157,71 @@ function ContactInputBox({ signupInfo, stepBack, stepForward })
  **/
 function SignupCompleteBox({ signupInfo, stepBack, stepForward })
 {
-    const title = "Signup Complete";
-    const subtitle = "I will get back to you within 1-2 business days";
+    // TODO: I don't think I should need both `apiRequestWasSent` and `isLoading` state,
+    //       but without it, multiple emails are getting sent. investigate this.
+    const [apiRequestWasSent, setApiRequestWasSent] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [success, setSuccess] = useState(false);
 
-    console.log(`New SignupForm: ${signupInfo.current.pretty()}`);
+    useEffect(() => {
+        var shouldMakeApiCall = !apiRequestWasSent;
+        setApiRequestWasSent(true);
 
-    return (
-        <SignupStepContainer className="signup-complete-box" title={title} subtitle={subtitle}>
-            <Box mb="20px">
-                <Button variant="outlined" onClick={()=>stepForward(signupInfo)}>OK</Button>
+        if (!shouldMakeApiCall && isLoading && !success) {
+            EmailApi.new_tutoring_signup(signupInfo.current, function onSuccess() {
+                setIsLoading(false);
+                setSuccess(true);
+            }, function onFailure() {
+                setIsLoading(false);
+                setSuccess(false);
+            });
+        }
+    }, [apiRequestWasSent, isLoading, success, signupInfo]);
+
+    function getTitle() {
+        return success ? "Signup Complete" : "Signup Failed";
+    }
+
+    function getSubtitle() {
+        if (success === true) {
+            return "I will get back to you within 1-2 business days";
+        } else {
+            return "Something went wrong with the email service. Try again letter or email me at tyler@perin.email";
+        }
+    }
+
+    if (isLoading) {
+        return (
+            <Box width="100%" height="100%" display="flex" alignItems="center" justifyContent="center">
+                <CircularProgress />
             </Box>
-        </SignupStepContainer>
-    );
+        );
+    } else {
+        return (
+            <SignupStepContainer className="signup-complete-box" title={getTitle()} subtitle={getSubtitle()}>
+                <Box mb="20px">
+                    <Button variant="outlined" onClick={()=>stepForward(signupInfo)}>
+                        { success ? "OK" : "Go Back" }
+                    </Button>
+                </Box>
+            </SignupStepContainer>
+        );
+    }
 }
-
+    
 // ==============================================================================================================
 
 export default function SignupForm({ onComplete, onCancel }) 
 {
     const [stepNumber, setStepNumber] = useState(0);
+
     const signupInfo = useRef(new SignupInfo());
     const allSignupSteps = [GradeInputBox, CourseInputBox, ContactInputBox, SignupCompleteBox]
 
     function stepForward() 
     {
         if (stepNumber === allSignupSteps.length-1) {
-            onComplete(signupInfo);
+            onComplete(signupInfo.current);
         } else {
             setStepNumber(stepNumber+1);
         }
