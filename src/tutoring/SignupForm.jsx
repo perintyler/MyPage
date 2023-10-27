@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Slide from '@mui/material/Slide';
 import { Stepper } from 'react-form-stepper';
-import ContactForm from '../ContactForm';
+import { ExtendedContactForm } from '../ContactForms';
 import './SignupForm.css';
 
 const MINIMUM_GRADE = 6;
@@ -122,7 +122,7 @@ function ContactInputBox({ signupInfo, stepBack, stepForward })
           subtitle="Add a message if you there's anything else you'd like to tell me"
           margin="0px"
         >
-            <ContactForm buttonTitle="Complete Signup" onComplete={(contactInfo) => {
+            <ExtendedContactForm buttonTitle="Complete Signup" msgIsRequired={false} onComplete={(contactInfo) => {
                 signupInfo.current.contactInfo = contactInfo;
                 stepForward();
             }} />
