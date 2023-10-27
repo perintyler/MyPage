@@ -23,13 +23,16 @@ function GreetingBox()
     )
 }
 
+/** TODO: fix this: no need for a grid anymore. there used to be multiple icons on the header bar, 
+ **       but now it's just the github icon, which can just be in a div floated to the right.
+ **/
 function HeaderBar()
 {
-    const websiteLogoBox = (
-        <Box pr={5} pt={2}>
-            <img src="TP.png" alt="logo" width="120px" height="120px" />
-        </Box>
-    );
+    // const websiteLogoBox = (
+    //     <Box pr={5} pt={2}>
+    //         <img src="TP.png" alt="logo" width="120px" height="120px" />
+    //     </Box>
+    // );
 
     const githubIconSize = "50px"; // width and height
 
@@ -54,30 +57,35 @@ function HeaderBar()
             <Grid item  justify="flex-end"/>
             <Grid item 
               justify="flex-end" 
-              children={websiteLogoBox}
+              children={githubSVGBox}
             />
         </Grid>
+    );
+}
+
+function PortfolioViewContainer({ children })
+{
+    return (
+        <FadeInContainer>
+            <Box id="portfolio-view">{ children }</Box>
+        </FadeInContainer>
     );
 }
 
 export default function PortfolioView()
 {
     return (
-        <Box id="portfolio-view">
-            <FadeInContainer hide={false}>
-                <HeaderBar />
-                
-                <Box paddingBottom="50px">
-                    <GreetingBox />
-                    <Box paddingTop={1} marginLeft={2} marginRight={2}>
-                        <ProjectGrid projects={getProjects()} />
-                    </Box>
+        <PortfolioViewContainer>
+            <HeaderBar />
+            <Box paddingBottom="50px">
+                <GreetingBox />
+                <Box paddingTop={1} marginLeft={2} marginRight={2}>
+                    <ProjectGrid projects={getProjects()} />
                 </Box>
-
-                <Box display="flex" width="100%" justifyContent="center" paddingBottom="30px">
-                    <Link href="https://github.com/perintyler/MyPage">See Source Code</Link>
-                </Box>
-            </FadeInContainer>
-        </Box>
+            </Box>
+            <Box display="flex" width="100%" justifyContent="center" paddingBottom="30px">
+                <Link href="https://github.com/perintyler/MyPage">See Source Code</Link>
+            </Box>
+        </PortfolioViewContainer>
     );
 }
