@@ -54,6 +54,7 @@ export default function ContactForm({ title, onComplete, buttonTitle })
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           margin="normal"
+          required
         />
         <TextField
           fullWidth
