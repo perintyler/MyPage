@@ -11,10 +11,10 @@ function StartSignupButton({ onClick })
     );
 }
 
-function TutoringInfoBoxContainer({ children })
+function TutoringServicesListContainer({ children })
 {
     return (
-        <Box className="tutoring-info-box">
+        <Box className="tutoring-services-list">
             <div className="numbered-list">{children}</div>
         </Box>
     );
@@ -48,10 +48,10 @@ export default function TutoringServicesList({ startSignup })
     );
 
     return (
-        <TutoringInfoBoxContainer>
-            <h1 id="tutoring-info-box-title">1-on-1 Computer Science Tutoring with Tyler Perin</h1>
+        <TutoringServicesListContainer>
+            <h1 id="tutoring-services-list-title">1-on-1 Computer Science Tutoring with Tyler Perin</h1>
             {serviceList}
             <StartSignupButton onClick={startSignup} />
-        </TutoringInfoBoxContainer>
+        </TutoringServicesListContainer>
     );
 }
