@@ -17,9 +17,12 @@
   text-align: left;
 }
 
-.numbered-list ol { padding-left: 50px; }
+.numbered-list ol { 
+  padding-left: 50px; 
+}
+
 .numbered-list li { 
-  color: #4F4F4F; 
+  color: #FC440F; 
   padding-left: 16px;
   margin-top: 24px;
   position: relative;
@@ -39,7 +42,13 @@
   }
 }
 
-.numbered-list strong { color: #292929; } 
+.numbered-list p {
+  color: #998888; 
+}
+
+.numbered-list strong { 
+  color: #00FFFF;
+} 
 
 .numbered-list ol.alternating-colors { 
   li:nth-child(odd):before { border-color: #0BAD02; }
