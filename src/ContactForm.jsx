@@ -11,20 +11,40 @@ class ContactInfo {
     this.phoneNumber = phoneNumber;
   }
 
-  pretty() {
+  pretty() 
+  {
     return `<ContactInfo name='${this.name}' email='${this.email}' message='${this.message}' phoneNumber='${this.phoneNumber}'>`
+  }
+
+  to_object() 
+  {
+    return {
+      name: this.name,
+      email: this.email,
+      phoneNumber: this.phoneNumber || "",
+      message: this.message || ""
+    };
+  }
+
+  to_json() {
+    return JSON.stringify(this.to_object());
   }
 }
 
-export function SimpleContactForm({ title, onComplete, buttonTitle, children, msgIsRequired }) 
+export function ContactForm({ title, onComplete, buttonTitle, children, msgIsRequired, phoneIsRequired }) 
 {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onComplete(new ContactInfo(name, email, message || null));
+    onComplete(new ContactInfo(name, email, message || null, phoneNumber || null));
+    setName("");
+    setEmail("");
+    setPhoneNumber("");
+    setMessage("");
   };
 
   return (
@@ -47,7 +67,14 @@ export function SimpleContactForm({ title, onComplete, buttonTitle, children, ms
           type="email"
           required
         />
-        {children}
+        <TextField
+          fullWidth
+          label="Phone Number"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          margin="normal"
+          required={phoneIsRequired}
+        />
         <TextField
           fullWidth
           label="Message"
@@ -61,33 +88,6 @@ export function SimpleContactForm({ title, onComplete, buttonTitle, children, ms
         <Button fullWidth={true} variant="contained" type="submit" sx={{ mt: 2 }}>{buttonTitle || "submit"}</Button>
       </form>
     </Box>
-  );
-}
-
-/**
- ** includes more inptut fields than `SimpleContactForm`, such as phone number input
- **/
-export function ExtendedContactForm({ title, onComplete, buttonTitle, children, msgIsRequired })
-{
-  const [phoneNumber, setPhoneNumber] = useState("");
-
-  return (
-    <SimpleContactForm
-      title={title}
-      onComplete={onComplete}
-      buttonTitle={buttonTitle}
-      msgIsRequired={msgIsRequired}
-    >
-      <TextField
-        fullWidth
-        label="Phone Number"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        margin="normal"
-        required
-      />
-      {children}
-    </SimpleContactForm>
   );
 }
 
