@@ -23,7 +23,7 @@ function TutoringViewContainer({ children })
 
     return (
         <FadeInContainer>
-            <Box className="tutoring-view-container" style={style}>{children}</Box>
+            <Box display="flex" justifyContent="center" alignItems="flex-start" className="tutoring-view-container" style={style}>{children}</Box>
         </FadeInContainer>
     );
 }
