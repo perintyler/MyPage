@@ -26,14 +26,14 @@ export default function TutoringServicesList({ startSignup })
         <ol className="alternating-colors">
             <li>
                 <strong>AP Computer Science</strong>
-                <p>Learn how to ace the AP test (I got a 5 when I took it many years ago)</p>
+                <p>Learn the fundamentals of Java -- as well as foundational coding concepts -- and ace the AP test</p>
             </li>
             <li>
                 <strong>Beginner & Intermediate Python</strong>
-                <p>Learn how to build awesome tools and GUIs using Python (my favorite language)</p>
+                <p>Learn how to build awesome tools and GUIs using Python</p>
             </li>
             <li>
-                <strong>Web-Design</strong>
+                <strong>Web-Development</strong>
                 <p>Learn Javascript, HTML, CSS, and modern web frameworks like React</p>
             </li>
             <li>
