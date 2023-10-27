@@ -1,5 +1,5 @@
 
-export function newContact(contactInfo) {
+export function newMessage(contactInfo) {
 
 }
 
