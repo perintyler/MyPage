@@ -2,10 +2,14 @@
  * Modified from https://codepen.io/ainalem/pen/YoyZpq
  **/
 
-import { useState, useEffect } from "react";
-import { CSSTransition } from 'react-transition-group';
-import Box from '@mui/material/Box';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./CircularMenu.css";
+
+function NavigationButton({ path, children })
+{
+  return <NavLink to={path} className="navigation-button">{children}</NavLink>;
+}
 
 export default function CircularMenu()
 {
@@ -15,31 +19,37 @@ export default function CircularMenu()
       <div className="circular-menu">
         <div className={isActive ? "active" : ""}>
           <div className="pie pie1" onClick={()=>setIsActive(false)}>
-            <div className="pie-color pie-color1">
-              <div className="portfolio-title">
-                Portfolio
+            <NavigationButton path="/portfolio">
+              <div className="pie-color pie-color1">
+                <div className="portfolio-title">
+                  Portfolio
+                </div>
               </div>
-            </div>
+            </NavigationButton>
           </div>
           <div className="pie pie2" onClick={()=>setIsActive(false)}>
-            <div className="pie-color pie-color2">
-              <div className="freelance-title">
-                Freelance
+            <NavigationButton path="/contact">
+              <div className="pie-color pie-color2">
+                <div className="contact-title">
+                  Contact
+                </div>
               </div>
-            </div>
+            </NavigationButton>
           </div>
           <div className="pie pie3" onClick={()=>setIsActive(false)}>
-            <div className="pie-color pie-color3">
-              <div className="tutoring-title">
-                Tutoring
+            <NavigationButton path="/tutoring">
+              <div className="pie-color pie-color3">
+                <div className="tutoring-title">
+                  Tutoring
+                </div>
               </div>
-            </div>
+            </NavigationButton>
           </div>
           <div className="menu" onClick={()=>setIsActive(!isActive)}>
             <svg className="hamburger" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
                   <g
                     fill="none"
-                    stroke="#000"
+                    stroke="white"
                     strokeWidth="7.999"
                     strokeLinecap="round"
                   >
