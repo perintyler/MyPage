@@ -1,16 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import App from './App';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import PortfolioView from './portfolio/PortfolioView';
+import TutoringView from './tutoring/TutoringView';
+import ContactView from './ContactView';
+import CircularMenu from './CircularMenu';
+import A404Page from './A404Page';
 import './index.css';
+
+function Layout()
+{
+    return (
+        <div className="App">
+            <CircularMenu />
+            <Outlet />
+        </div>
+    );
+}
+
+const router = createBrowserRouter([
+{
+    errorElement: <A404Page />,
+    element: <Layout />,
+    path: '/',
+    children: [
+    {
+        path: '',
+        element: <PortfolioView />
+    },
+    {
+        path: 'contact',
+        element: <ContactView />
+    },
+    {
+        path: 'tutoring',
+        element: <TutoringView />
+    }
+    ]
+}]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <RouterProvider router={router} />
   </React.StrictMode>
 );
 
