@@ -19,7 +19,7 @@ export default function CircularMenu()
       <div className="circular-menu">
         <div className={isActive ? "active" : ""}>
           <div className="pie pie1" onClick={()=>setIsActive(false)}>
-            <NavigationButton path="/portfolio">
+            <NavigationButton path="/">
               <div className="pie-color pie-color1">
                 <div className="portfolio-title">
                   Portfolio
