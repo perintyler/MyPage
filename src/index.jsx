@@ -21,9 +21,9 @@ function Layout()
 
 const router = createBrowserRouter([
 {
-    errorElement: <A404Page />,
-    element: <Layout />,
     path: '/',
+    element: <Layout />,
+    errorElement: <A404Page />,
     children: [
     {
         path: '',
@@ -36,8 +36,7 @@ const router = createBrowserRouter([
     {
         path: 'tutoring',
         element: <TutoringView />
-    }
-    ]
+    }]
 }]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
