@@ -25,7 +25,9 @@ const COLORS = {
     sping_green         : "#0CF574",
     aureolin            : "#F9E900",
     sun_glow            : "#FFD166",
-    lavender_blush      : "#F3E8EE"
+    lavender_blush      : "#F3E8EE",
+    moon_stone          : "#46B1C9",
+    majorelle_blue      : "#623CEA"
 };
 
 export default COLORS;
