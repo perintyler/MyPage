@@ -6,7 +6,6 @@ import Link from '@mui/material/Link';
 import SvgIcon from '@mui/material/SvgIcon';
 import { ReactComponent as GithubIcon } from './github.svg';
 import COLORS from '../Colors';
-import { FadeInContainer } from '../Animations';
 import ProjectGrid from './ProjectGrid'
 import getProjects from './Projects';
 import './PortfolioView.css';
@@ -14,7 +13,7 @@ import './PortfolioView.css';
 function GreetingBox()
 {
     return (
-        <Box margin={4} paddingBottom={2} sx={{textAlign: "center"}}>
+        <Box sx={{textAlign: "center"}}>
             <Typography variant="h2" paddingLeft={1}><b>Hi 👋</b></Typography>
             <Typography variant="h4" paddingTop={4} paddingBottom={5}>
                 You can reach me at <Link href="mailto: tyler@perin.email">tyler@perin.email</Link> 
@@ -45,7 +44,7 @@ function HeaderBar()
     };
 
     const githubSVGBox = (
-        <Box width={githubIconSize} height={githubIconSize} display="flex" justifyContent="center">
+        <Box margin="8px" width={githubIconSize} height={githubIconSize} display="flex" justifyContent="center">
             <a href="https://github.com/perintyler">
                 <SvgIcon component={GithubIcon} sx={githubIconStyle}/>
             </a>
@@ -63,19 +62,10 @@ function HeaderBar()
     );
 }
 
-function PortfolioViewContainer({ children })
-{
-    return (
-        <FadeInContainer>
-            <Box id="portfolio-view">{ children }</Box>
-        </FadeInContainer>
-    );
-}
-
 export default function PortfolioView()
 {
     return (
-        <PortfolioViewContainer>
+        <Box id="portfolio-view">
             <HeaderBar />
             <Box paddingBottom="50px">
                 <GreetingBox />
@@ -86,6 +76,6 @@ export default function PortfolioView()
             <Box display="flex" width="100%" justifyContent="center" paddingBottom="30px">
                 <Link href="https://github.com/perintyler/MyPage">See Source Code</Link>
             </Box>
-        </PortfolioViewContainer>
+        </Box>
     );
 }
