@@ -41,7 +41,9 @@ function ContactViewContainer({ children })
 {
   var contactCard = (
     <ThemeProvider theme={darkTheme}>
-      <Card className="contact-card">{children}</Card>
+      <Box ml="12px" mr="12px" mt="100px" mb="100px">
+        <Card className="contact-card">{children}</Card>
+      </Box>
     </ThemeProvider>
   );
 
