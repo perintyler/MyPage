@@ -1,7 +1,8 @@
-/* Animations.jsx */
+/*** Animations.jsx ***/
 
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { Slide } from '@mui/material';
 
 export function FadeInContainer(props)
 {
@@ -11,7 +12,7 @@ export function FadeInContainer(props)
       <div 
         ref={animationReference} 
         style={{width: "100%", height: "100%"}}
-        children={props.children}
+        {...props}
       />
     );
 
