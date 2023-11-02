@@ -30,16 +30,6 @@
     font-weight: 500;
 }
 
-.Project-Grid-Item {
-    border-color: black;
-    color: black;
-}
-
-.Project-Grid-Item:hover {
-    border-color: #FF2467;
-    color: #FF2467;
-}
-
 .Skill-Grid-Item {
     border-radius: 4px;
     border: 2px solid #92eac0;

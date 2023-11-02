@@ -39,13 +39,13 @@ function ProjectCard({ project, preview })
 
     const githubLink = (
         <Button>
-            <Link href={project.repoUrl}>Github Repo</Link>
+            <Link color="rgba(247, 179, 43, 0.9)" href={project.repoUrl}>Github Repo</Link>
         </Button>
     );
 
     const websiteLink = (
         <Button>
-            <Link href={project.websiteUrl}>Website</Link>
+            <Link color="rgba(247, 179, 43, 0.9)" href={project.websiteUrl}>Website</Link>
         </Button>
     );
 
@@ -53,8 +53,18 @@ function ProjectCard({ project, preview })
 
     const links = project.websiteUrl === null ? (<>{githubLink}</>) : (<>{githubLink}{websiteLink}</>);
 
+    let cardStyle = {
+        backgroundColor: 'rgba(0, 0, 0, 0.72)',
+        color: '#C9D6EA',
+        transition: 'background-color 0.3s',
+        '&:hover': {
+          backgroundColor: 'rgba(0, 0, 0, 0.90)',
+          color: '#00DB86',
+        }
+    };
+
     return (
-        <Box border={2} height="100%" backgroundColor="rgba(0, 0, 0, 0.7)" color="#C9D6EA">
+        <Box border={2} height="100%" sx={cardStyle} borderRadius="4px">
             <Box margin={2}>
 
                 <Box display="inline">

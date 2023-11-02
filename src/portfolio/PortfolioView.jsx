@@ -24,7 +24,7 @@ function PortfolioHeader({ portfolioBodyRef })
     {        
         return (
             <Box sx={{textAlign: "center"}} pt="8%" ml="36px" mr="36px">
-                <Typography id="hi" variant="h2" color="white" ml="34px">
+                <Typography id="hi" variant="h2" color="white" ml="36px">
                     Hi 
                     <span id="wave-emoji">👋</span>
                 </Typography>
@@ -42,7 +42,7 @@ function PortfolioHeader({ portfolioBodyRef })
     {
         const githubIconSize = "50px";
         const githubIconStyle = {
-            color: "#EE4266", 
+            color: "#FFD23F", 
             "&:hover": {color: "#00A5CF"}, 
             textAlign: "center", 
             width: githubIconSize, 
@@ -86,10 +86,10 @@ function PortfolioBody({ reference })
     var titleBar = (
         <Box 
           pt="24px" 
-          pb="30px" 
+          pb="40px" 
           height="100px" 
           width="100%" 
-          backgroundColor="rgba(0, 0, 0, 0.9)"  
+          backgroundColor="rgba(0, 0, 0, 0.75)"  
           borderBottom="20px" 
           borderColor="black"
         >
@@ -111,7 +111,7 @@ function PortfolioBody({ reference })
     );
 
     var projectsBox = (
-        <Box pl="12px" pr="12px" pt="24px" pb="36px">
+        <Box pl="6px" pr="6px" pt="24px" pb="24px">
             <ProjectGrid projects={getProjects()} />
         </Box>
     );
