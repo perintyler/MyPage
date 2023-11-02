@@ -23,7 +23,7 @@ function PortfolioHeader({ portfolioBodyRef })
     function GreetingBox()
     {        
         return (
-            <Box sx={{textAlign: "center"}} pt="8%" ml="36px" mr="36px">
+            <Box sx={{textAlign: "center"}} pt="8%" pl="36px" pr="36px">
                 <Typography id="hi" variant="h2" color="white" ml="36px">
                     Hi 
                     <span id="wave-emoji">👋</span>
