@@ -25,6 +25,11 @@
     margin-left: 10px;
 }
 
+#portfolio-body-title {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
 .Project-Grid-Item {
     border-color: black;
     color: black;

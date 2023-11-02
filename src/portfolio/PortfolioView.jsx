@@ -93,16 +93,18 @@ function PortfolioBody({ reference })
           borderBottom="20px" 
           borderColor="black"
         >
-            <Typography 
+            <Typography
               ml="12px" 
               mt="18px" 
               mb="18px" 
               pl="3px" 
+              pb="3px"
               variant="h2" 
               color="white" 
               borderTop={1} 
               borderBottom={1} 
               borderColor="white"
+              id="portfolio-body-title"
               children="Portfolio"
             />
         </Box>
