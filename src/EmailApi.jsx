@@ -1,3 +1,4 @@
+/*** EmailApi.jsx ***/
 
 import emailjs from '@emailjs/browser';
 

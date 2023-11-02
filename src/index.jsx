@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import PortfolioView from './portfolio/PortfolioView';
 import TutoringView from './tutoring/TutoringView';
-import ContactView from './ContactView';
+import ContactView from './contact/ContactView';
 import CircularMenu from './CircularMenu';
 import A404Page from './A404Page';
 import './index.css';

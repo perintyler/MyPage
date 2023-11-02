@@ -8,7 +8,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Slide from '@mui/material/Slide';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Stepper } from 'react-form-stepper';
-import { ContactForm } from '../ContactForm';
+import { ContactForm } from '../contact/ContactForm';
 import EmailApi from '../EmailApi'
 import './SignupForm.css';
 

@@ -9,8 +9,8 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import { ContactForm } from './ContactForm';
-import { YellowBackdrop } from './Backdrops'
-import EmailApi from './EmailApi';
+import { YellowBackdrop } from '../Backdrops'
+import EmailApi from '../EmailApi';
 import './ContactView.css';
 
 const darkTheme = createTheme({
