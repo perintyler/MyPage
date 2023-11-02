@@ -13,7 +13,7 @@
   height: 350px;
   margin: 0 auto;
   position: absolute;
-  left: -52px;
+  left: -54px;
   right: 0;
 }
 
@@ -21,7 +21,7 @@
   width: 304px;
   height: 304px;
   margin: 47px;
-background: rgba(238, 66, 102, 1);
+  background: rgba(238, 66, 102, 1);
   z-index: 2;
   opacity: 0.2;
   border-radius: 50%;
@@ -38,6 +38,17 @@ background: rgba(238, 66, 102, 1);
   z-index: 5;
   display: table;
   background: rgba(0, 0, 0, 0.79);
+}
+
+.glowing-orb:hover {
+
+  .inside-circle {
+    background: #00DB86;
+  }
+
+  .outside-circle {
+    background: #1AC8ED;
+  }
 }
 
 .glowing-orb .inside-circle:before {
