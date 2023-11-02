@@ -21,7 +21,7 @@ function GlowingBlueCircle({ children })
 function AnimatedArrows()
 {
     return (
-        <div class="indicator">
+        <div className="indicator">
           <span></span>
           <span></span>
           <span></span>
