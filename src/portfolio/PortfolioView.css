@@ -10,7 +10,6 @@
 }
 
 #portfolio-header #hi #wave-emoji {
-    margin-left: 10px;
 }
 
 #portfolio-header #reach-me {
@@ -18,11 +17,10 @@
     font-weight: 500;
 }
 
-#portfolio-header #reach-me #my-email {
+#portfolio-header #my-email {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     color: #00DB86;
-    margin-left: 10px;
 }
 
 #portfolio-body-title {
