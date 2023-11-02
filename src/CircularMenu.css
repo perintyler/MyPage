@@ -15,7 +15,7 @@
 
 .circular-menu .pie {
   -webkit-tap-highlight-color: transparent;
-  background: #000;
+  background:  #00DB86;
   border-radius: 50%;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -26,8 +26,10 @@
   width: 400px;
   transform: translateX(-200px) translateY(-200px);
   transition: transform 300ms;
-  border-color: #1E1E1E;
+  border-color: #00DB86;
   border-style: solid;
+  border-width:  2px;
+
 }
 
 .circular-menu .pie-color:hover {
@@ -53,6 +55,7 @@
   transition-delay: 90ms;
 }
 
+
 .circular-menu .pie-color {
   width: 100%;
   height: 100%;
@@ -60,15 +63,16 @@
 }
 
 .circular-menu .pie-color1 {
-  background: linear-gradient(135deg, #88498F, #88498F);
+  background: linear-gradient(135deg, black, black);
   clip-path: polygon(200px 200px, 344px 450px, 0 450px);
 }
+
 .circular-menu .pie-color2 {
-  background: linear-gradient(135deg, #FF5A5F, #FF5A5F);
+  background: linear-gradient(135deg, black, black);
   clip-path: polygon(200px 200px, 344px 450px, 450px 344px);
 }
 .circular-menu .pie-color3 {
-  background: linear-gradient(135deg, #087E8B, #087E8B);
+  background: linear-gradient(135deg, black, black);
   clip-path: polygon(200px 200px, 450px 0, 450px 344px);
 }
 
@@ -89,37 +93,37 @@
 .circular-menu .portfolio-title {
   position: absolute;
   left: 204px;
-  top: 373px;
+  top: 372px;
   width: 64px;
   transform: rotate(-14deg);
   -webkit-transform: rotate(-14deg);
   -moz-transform: rotate(-14deg);
   -ms-transform: rotate(-14deg);
-  color: #1E1E1E;
+  color: #EE4266;
 }
 
 .circular-menu .contact-title {
   position: absolute;
-  left: 300px;
-  top: 334px;
+  left: 302px;
+  top: 329px;
   width: 46px;
-  transform: rotate(-43deg);
-  -webkit-transform: rotate(-43deg);
-  -moz-transform: rotate(-43deg);
-  -ms-transform: rotate(-43deg);
-  color: #1E1E1E;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  color: #EE4266;
 }
 
 .circular-menu .tutoring-title {
   position: absolute;
-  left: 354px;
+  left: 355px;
   top: 252px;
   width: 46px;
-  transform: rotate(-74deg);
-  -webkit-transform: rotate(-74deg);
-  -moz-transform: rotate(-74deg);
-  -ms-transform: rotate(-74deg);
-  color: #1E1E1E;
+  transform: rotate(-75deg);
+  -webkit-transform: rotate(-75deg);
+  -moz-transform: rotate(-75deg);
+  -ms-transform: rotate(-75deg);
+  color: #EE4266;
 }
 
 .circular-menu .menu {
@@ -143,6 +147,12 @@
   top: 58%;
   width: 46px;
   height: 46px;
+}
+
+.circular-menu .active .menu {
+  border-color: #00DB86;
+  border-style: solid;
+  border-width:  2px;
 }
 
 .circular-menu .title {
@@ -230,7 +240,6 @@
     height: 104px;
     top: -50px;
     left: -50px;
-    border: 1px solid white;
   }
 
   .circular-menu .pie {
@@ -239,9 +248,6 @@
     top: -150px;
     width: 300px;
     transform: translateX(-150px) translateY(-150px);
-    border-color: black;
-    border-style: solid;
-
   }
 
   .circular-menu .pie1 {
