@@ -131,8 +131,8 @@ function PortfolioFooter()
 export default function PortfolioView()
 {
     return (
-        <FadeInContainer>
-            <Box id="portfolio-view" minHeight="100vh">
+        <Box id="portfolio-view" minHeight="100vh" backgroundColor="#00DB86">
+            <FadeInContainer>
                 <ThemeProvider theme={darkTheme}>
                     <PortfolioHeader />
                     <BlueAndRedBackdrop>
@@ -140,7 +140,7 @@ export default function PortfolioView()
                         <PortfolioFooter />
                     </BlueAndRedBackdrop>
                 </ThemeProvider>
-            </Box>
-        </FadeInContainer>
+            </FadeInContainer>
+        </Box>
     );
 }
