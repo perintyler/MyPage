@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import TutoringServicesList from './TutoringServicesList'
 import SignupForm from './SignupForm';
-import { FadeInContainer } from '../Animations'
 import './NumberedList.css';
 import './TutoringView.css';
 
@@ -16,15 +15,10 @@ const darkTheme = createTheme({
 
 function TutoringViewContainer({ children })
 {
-    let style = {
-      background: `url(${process.env.PUBLIC_URL + '/red-backdrop.png'})`, 
-      backgroundSize: 'cover'
-    };
-
     return (
-        <FadeInContainer>
-            <Box display="flex" justifyContent="center" alignItems="flex-start" className="tutoring-view-container" style={style}>{children}</Box>
-        </FadeInContainer>
+        <Box display="flex" justifyContent="center" alignItems="center" className="tutoring-view-container">
+            <ThemeProvider theme={darkTheme}>{ children }</ThemeProvider>
+        </Box>
     );
 }
 
@@ -50,16 +44,14 @@ export default function TutoringView()
     };
 
     return (
-        <ThemeProvider theme={darkTheme}>
-            <TutoringViewContainer>
-                <TutoringViewContent
-                  className="tutoring-view-content"
-                  isSigningUp={isSigningUp} 
-                  startSignup={openSignupForm} 
-                  cancelSignup={closeSignupForm}
-                  completeSignup={completeSignup}
-                />
-            </TutoringViewContainer>
-        </ThemeProvider>
+        <TutoringViewContainer>
+            <TutoringViewContent
+              className="tutoring-view-content"
+              isSigningUp={isSigningUp} 
+              startSignup={openSignupForm} 
+              cancelSignup={closeSignupForm}
+              completeSignup={completeSignup}
+            />
+        </TutoringViewContainer>
     );
 }
