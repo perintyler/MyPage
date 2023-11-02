@@ -17,32 +17,6 @@
     margin-bottom: 10px;
     font-family: Camphor,Open Sans,Segoe UI,sans-serif;
     font-size: .85rem;
-    color: #525f7f;
+    color: #C9D6EA;
+    background-color: rgba(0, 0, 0, 0.6);
 }
-
-/*.logo-animation-appear {
-    width: 60vw;
-    opacity: 0;
-}
-
-.logo-animation-appear-active {
-    width: 60vw;
-    opacity: 1;
-    transition: opacity 900ms ease-in;
-}
-
-.logo-animation-enter {
-    width: 60vw;
-    opacity: 1;
-}
-
-.logo-animation-exit {
-    width: 60vw;
-    opacity: 1;
-}
-
-.logo-animation-exit-active {
-    width: 60vw;
-    opacity: 0;
-    transition: opacity 2500ms ease-in;
-}*/
