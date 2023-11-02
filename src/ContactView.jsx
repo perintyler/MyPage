@@ -1,3 +1,4 @@
+/*** ContactView.jsx ***/
 
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -8,6 +9,7 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import { ContactForm } from './ContactForm';
+import { YellowBackdrop } from './Backdrops'
 import EmailApi from './EmailApi';
 import './ContactView.css';
 
@@ -44,6 +46,7 @@ function ContactViewContainer({ children })
   );
 
   return (
+    <YellowBackdrop>
       <Box
         height="100%" 
         width="100%" 
@@ -54,6 +57,7 @@ function ContactViewContainer({ children })
         alignItems="center"
         children={contactCard}
       />
+    </YellowBackdrop>
   );
 }
 
