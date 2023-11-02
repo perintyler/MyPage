@@ -40,15 +40,13 @@
   background: rgba(0, 0, 0, 0.79);
 }
 
-.glowing-orb:hover {
+.inside-circle:hover {
+  cursor: pointer;
+  background: #00DB86;
+}
 
-  .inside-circle {
-    background: #00DB86;
-  }
-
-  .outside-circle {
-    background: #1AC8ED;
-  }
+.inside-circle:hover + .outside-circle {
+  background: #1AC8ED;
 }
 
 .glowing-orb .inside-circle:before {
