@@ -1,4 +1,8 @@
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body, #root, .App {
   margin: 0;
   padding: 0;
