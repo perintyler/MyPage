@@ -131,10 +131,11 @@ function PortfolioFooter()
           justifyContent="center" 
           alignItems="center" 
           backgroundColor="rgba(0, 0, 0, 0.92)" 
-          height="60px"
+          height="120px"
           children={repoLink}
           borderTop={1}
           borderColor="#8FCAF9"
+          mt="40px"
         />
     );
 }
