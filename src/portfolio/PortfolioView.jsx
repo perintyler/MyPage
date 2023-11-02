@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import SvgIcon from '@mui/material/SvgIcon';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { animateScroll } from 'react-scroll';
 import { BlueAndRedBackdrop } from '../Backdrops';
 import { FadeInContainer } from '../Animations';
 import { ReactComponent as GithubIcon } from './github.svg';
@@ -18,6 +19,18 @@ const darkTheme = createTheme({
   },
 });
 
+function scrollTo(htmlReference)
+{
+    var scrollDestination = htmlReference.current.offsetTop;
+
+    animateScroll.scrollTo(scrollDestination, {
+        delay: 0, 
+        duration: 300, 
+        smooth: 'easeInQuad',
+        ignoreCancelEvents: true
+    });
+}
+
 function PortfolioHeader({ portfolioBodyRef })
 {
     function GreetingBox()
@@ -31,7 +44,7 @@ function PortfolioHeader({ portfolioBodyRef })
                 <Typography fontSize="2.5rem" id="reach-me" variant="h4" pl="5px" pt={4} pb="10px" color="white">
                     You can reach me at 
                 </Typography>
-                <Link fontSize="2.2rem" pl="5px" pt={4} pb="10px" pb="10px" id="my-email" href="mailto: tyler@perin.email">
+                <Link fontSize="2.2rem" pl="5px" pt={4} pb="10px" id="my-email" href="mailto: tyler@perin.email">
                     tyler@perin.email
                 </Link>
             </Box>
@@ -66,7 +79,7 @@ function PortfolioHeader({ portfolioBodyRef })
             <Box textAlign="center" width="100%" height="500px">
                 <ScrolldownButton 
                   title="portfolio"
-                  onClick={()=>portfolioBodyRef.current.scrollIntoView(true)}
+                  onClick={()=>scrollTo(portfolioBodyRef)}
                 />
             </Box>
         );
