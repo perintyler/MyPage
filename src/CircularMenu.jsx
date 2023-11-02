@@ -21,7 +21,7 @@ export default function CircularMenu()
           <div className="pie pie1" onClick={()=>setIsActive(false)}>
             <NavigationButton path="/">
               <div className="pie-color pie-color1">
-                <div className="portfolio-title">
+                <div className="menu-title portfolio-title">
                   Portfolio
                 </div>
               </div>
@@ -30,7 +30,7 @@ export default function CircularMenu()
           <div className="pie pie2" onClick={()=>setIsActive(false)}>
             <NavigationButton path="/contact">
               <div className="pie-color pie-color2">
-                <div className="contact-title">
+                <div className="menu-title contact-title">
                   Contact
                 </div>
               </div>
@@ -39,7 +39,7 @@ export default function CircularMenu()
           <div className="pie pie3" onClick={()=>setIsActive(false)}>
             <NavigationButton path="/tutoring">
               <div className="pie-color pie-color3">
-                <div className="tutoring-title">
+                <div className="menu-title tutoring-title">
                   Tutoring
                 </div>
               </div>
