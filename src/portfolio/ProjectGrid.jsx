@@ -25,7 +25,7 @@ function SkillGrid({ languages, frameworks })
 {
     const skills = languages.concat(frameworks);
     const gridItems = skills.map((skill) => <Grid item key={skill}><SkillBox skill={skill} /> </Grid>);
-    return <Grid container justifyContent="center">{gridItems}</Grid>
+    return <Grid pl="12px" pr="12px" container justifyContent="center">{gridItems}</Grid>
 }
 
 
