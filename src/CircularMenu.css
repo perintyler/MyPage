@@ -85,20 +85,20 @@
 
 .circular-menu .portfolio-title {
   position: absolute;
-  left: 214px;
+  left: 213px;
   top: 371px;
   width: 64px;
-  transform: rotate(-13deg);
-  -webkit-transform: rotate(-13deg);
-  -moz-transform: rotate(-13deg);
-  -ms-transform: rotate(-13deg);
+  transform: rotate(-14deg);
+  -webkit-transform: rotate(-14deg);
+  -moz-transform: rotate(-14deg);
+  -ms-transform: rotate(-14deg);
   color: #EE4266;
 }
 
 .circular-menu .contact-title {
   position: absolute;
   left: 305px;
-  top: 326px;
+  top: 328px;
   width: 46px;
   transform: rotate(-44deg);
   -webkit-transform: rotate(-44deg);
@@ -112,10 +112,10 @@
   left: 357px;
   top: 243px;
   width: 46px;
-  transform: rotate(-78deg);
-  -webkit-transform: rotate(-78deg);
-  -moz-transform: rotate(-78deg);
-  -ms-transform: rotate(-78deg);
+  transform: rotate(-77deg);
+  -webkit-transform: rotate(-77deg);
+  -moz-transform: rotate(-77deg);
+  -ms-transform: rotate(-77deg);
   color: #EE4266;
 }
 
@@ -146,6 +146,7 @@
   border-color: #00DB86;
   border-style: solid;
   border-width:  1px;
+  transition-delay: 90ms;
 }
 
 .circular-menu .title {
@@ -219,7 +220,7 @@
   color: #823329;
 }
 
-@media (max-width: 616px) 
+/*@media (max-width: 616px) 
 {
   .circular-menu .hamburger {
     width: 30px;
@@ -236,3 +237,4 @@
   }
 
 }
+*/
