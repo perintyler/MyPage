@@ -79,6 +79,13 @@
   font-size: 15px;
 }
 
+.circular-menu .menu-title {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
 .circular-menu .portfolio-title {
   position: absolute;
   left: 204px;
@@ -131,11 +138,11 @@
 
 .circular-menu .hamburger {
   cursor: pointer;
-  height: 46px;
-  left: 58%;
   position: relative;
+  left: 58%;
   top: 58%;
   width: 46px;
+  height: 46px;
 }
 
 .circular-menu .title {
@@ -145,6 +152,7 @@
   margin-top: 60px;
   text-align: center;
 }
+
 .circular-menu .body {
   font-family: "Work Sans", sans-serif;
   font-size: 20px;
@@ -206,4 +214,81 @@
 .navigation-button {
   text-decoration: none;
   color: #823329;
+}
+
+@media (max-width: 616px) 
+{
+  .circular-menu .hamburger {
+    width: 30px;
+    height: 30px;
+    left: 55px;
+    top: 56px;
+  }
+
+  .circular-menu .menu {
+    width: 104px;
+    height: 104px;
+    top: -50px;
+    left: -50px;
+    border: 1px solid white;
+  }
+
+  .circular-menu .pie {
+    height: 306px;
+    left: -150px;
+    top: -150px;
+    width: 300px;
+    transform: translateX(-150px) translateY(-150px);
+    border-color: black;
+    border-style: solid;
+
+  }
+
+  .circular-menu .pie1 {
+    clip-path: polygon(150px 150px, 258px 338px, 0 338px);
+  }
+
+  .circular-menu .pie2 {
+    clip-path: polygon(150px 150px, 258px 338px, 338px 258px);
+  }
+
+  .circular-menu .pie3 {
+    clip-path: polygon(150px 150px, 338px 0, 338px 258px);
+  }
+
+  .circular-menu .pie-color1 {
+    clip-path: polygon(150px 150px, 258px 338px, 0 338px);
+  }
+
+  .circular-menu .pie-color2 {
+    clip-path: polygon(150px 150px, 258px 338px, 338px 258px);
+  }
+
+  .circular-menu .pie-color3 {
+    clip-path: polygon(150px 150px, 338px 0, 338px 258px);
+  }
+
+  .circular-menu .portfolio-title {
+    font-size: 12px;
+    left: 152px;
+    top: 286px;
+    width: 32px;
+    transform: rotate(-14deg);
+  }
+
+  .circular-menu .contact-title {
+    font-size: 12px;
+    left: 227px;
+    top: 252px;
+    width: 35px;
+    transform: rotate(-46deg);
+  }
+
+  .circular-menu .tutoring-title {
+    font-size: 12px;
+    left: 262px;
+    top: 184px;
+    width: 46px;
+    transform: rotate(-77deg);
+  }
 }
