@@ -25,7 +25,7 @@ function scrollTo(htmlReference)
 
     animateScroll.scrollTo(scrollDestination, {
         delay: 0, 
-        duration: 300, 
+        duration: 500, 
         smooth: 'easeInQuad',
         ignoreCancelEvents: true
     });
