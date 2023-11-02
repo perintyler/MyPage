@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { RedBackdrop, YellowBackdrop, BlueBackdrop } from './Backdrops';
 import PortfolioView from './portfolio/PortfolioView';
 import TutoringView from './tutoring/TutoringView';
 import ContactView from './ContactView';
@@ -27,15 +28,15 @@ const router = createBrowserRouter([
     children: [
     {
         path: '',
-        element: <PortfolioView />
+        element: <BlueBackdrop><PortfolioView /></BlueBackdrop>
     },
     {
         path: 'contact',
-        element: <ContactView />
+        element: <YellowBackdrop><ContactView /></YellowBackdrop>
     },
     {
         path: 'tutoring',
-        element: <TutoringView />
+        element: <RedBackdrop><TutoringView /></RedBackdrop>
     }]
 }]);
 
