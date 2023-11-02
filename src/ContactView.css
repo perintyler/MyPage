@@ -1,0 +1,37 @@
+
+.contact-card {
+  boxShadow: 5;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.80) !important;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  margin: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #847996;
+  border-radius: 12px !important;
+}
+
+@media (max-width: 616px) 
+{
+  .contact-card {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.contact-card button {
+  height: 50px;
+  width: 100%;
+  borderRadius: 10px;
+  font-size: 1.6;
+  font-weight: bold;
+}

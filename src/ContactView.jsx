@@ -8,8 +8,8 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import { ContactForm } from './ContactForm';
-import { FadeInContainer } from './Animations';
 import EmailApi from './EmailApi';
+import './ContactView.css';
 
 const darkTheme = createTheme({
   palette: {
@@ -37,38 +37,23 @@ function EmailSentDialog({ show, success, onClose })
 
 function ContactViewContainer({ children })
 {
-  let boxStyle = {
-    background: `url(${process.env.PUBLIC_URL + '/blue-backdrop.png'})`, 
-    backgroundSize: 'cover',
-    width: '100%',
-    height: '100%',
-    minHeight: '100vh'
-  };
-
-  let cardStyle = {
-    boxShadow: 5,
-    color: 'white',
-    backgroundColor: 'rgba(0, 0, 0, 0.78)',
-    padding: '36px'
-  };
+  var contactCard = (
+    <ThemeProvider theme={darkTheme}>
+      <Card className="contact-card">{children}</Card>
+    </ThemeProvider>
+  );
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <FadeInContainer>
-        <Box 
-          height="100%" 
-          width="100%" 
-          className="contact-view-container" 
-          style={boxStyle}
-          display="flex" 
-          flexDirection="column" 
-          justifyContent="center" 
-          alignItems="center"
-        >
-          <Card style={cardStyle}>{children}</Card>
-        </Box>
-      </FadeInContainer>
-    </ThemeProvider>
+      <Box
+        height="100%" 
+        width="100%" 
+        minHeight="100vh"
+        display="flex"
+        flexDirection="column" 
+        justifyContent="center" 
+        alignItems="center"
+        children={contactCard}
+      />
   );
 }
 
