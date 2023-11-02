@@ -9,14 +9,6 @@
   user-select: none;
 }
 
-@media (max-width: 616px) {
-  .tutoring-view-container {
-    height: fit-content;
-    padding-bottom: 24px;
-  }
-
-}
-
 #tutoring-view-header-box {
   width: 100%;
   height: 100%;
@@ -77,22 +69,17 @@
 .tutoring-services-list {
   display: flex;
   justify-content: center;
-  margin-left: 6px;
-  margin-right: 6px;
+  margin-left: 8px;
+  margin-right: 8px;
   width: calc(100% - 12px);
-  margin-top: 50px;
+  margin-bottom: 22px;
+  margin-top: 22px;
 }
 
 .tutoring-services-list > div {
   padding: 32px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   color: white;
-  background-color: rgba(0, 0, 0, 0.82);
+  background-color: rgba(0, 0, 0, 0.8);
 }
-
-.tutoring-view-content {
-  padding-bottom: 20px;
-}
-
-
 
