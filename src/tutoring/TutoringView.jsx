@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from "react";
 import Box from '@mui/material/Box';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { RedBackdrop } from '../Backdrops';
 import TutoringServicesList from './TutoringServicesList'
 import SignupForm from './SignupForm';
 import './NumberedList.css';
@@ -16,9 +17,11 @@ const darkTheme = createTheme({
 function TutoringViewContainer({ children })
 {
     return (
+      <RedBackdrop>
         <Box display="flex" justifyContent="center" alignItems="center" className="tutoring-view-container">
             <ThemeProvider theme={darkTheme}>{ children }</ThemeProvider>
         </Box>
+      </RedBackdrop>
     );
 }
 
