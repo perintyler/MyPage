@@ -19,9 +19,9 @@ export function RedBackdrop(props)
   return <ImageBackdrop image="backdrop_red.png" {...props} />
 }
 
-export function YellowBackdrop(props)
+export function TealBackdrop(props)
 {
-  return <ImageBackdrop image="backdrop_yellow.png" {...props} />
+  return <ImageBackdrop image="backdrop_teal.png" {...props} />
 }
 
 export function BlueAndRedBackdrop(props)
