@@ -24,18 +24,16 @@ function PortfolioHeader({ portfolioBodyRef })
     {        
         return (
             <Box sx={{textAlign: "center"}} pt="8%" pl="36px" pr="36px">
-                <Typography id="hi" variant="h2" color="white" ml="36px">
+                <Typography id="hi" variant="h2" color="white" pl="36px">
                     Hi 
                     <span id="wave-emoji">👋</span>
                 </Typography>
-                <Typography fontSize="2.5em" id="reach-me" variant="h4" pl="5px" pt={4} pb="10px" color="white">
+                <Typography fontSize="2.5rem" id="reach-me" variant="h4" pl="5px" pt={4} pb="10px" color="white">
                     You can reach me at 
                 </Typography>
-                <Typography display="inline" fontSize="2.5em" id="reach-me" variant="h4" pl="5px" pt={4} pb="10px" color="white">
-                    <Link id="my-email" href="mailto: tyler@perin.email">
+                <Link fontSize="2.2rem" pl="5px" pt={4} pb="10px" pb="10px" id="my-email" href="mailto: tyler@perin.email">
                     tyler@perin.email
-                    </Link>
-                </Typography>
+                </Link>
             </Box>
         )
     }
