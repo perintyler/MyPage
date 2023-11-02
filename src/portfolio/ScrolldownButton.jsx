@@ -35,7 +35,7 @@ function ScrolldownButtonTitle({ title })
       <Typography 
         className="scrolldown-button-title" 
         zIndex="5" 
-        ml="5px" 
+        ml="4px" 
         mt="70px" 
         color="white" 
         fontSize="1.8em"
