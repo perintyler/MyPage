@@ -8,6 +8,14 @@ import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import './ProjectCard.css';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function SkillBox({ skill })
 {
@@ -21,7 +29,8 @@ function SkillGrid({ languages, frameworks })
     return <Grid container justifyContent="center">{gridItems}</Grid>
 }
 
-function ProjectBox({ project, preview })
+
+function ProjectCard({ project, preview })
 {
     const projectTitle = (
         <span><Typography display="inline" variant="h6"><b>{project.name}</b></Typography></span>
@@ -46,7 +55,7 @@ function ProjectBox({ project, preview })
     const links = project.websiteUrl === null ? (<>{githubLink}</>) : (<>{githubLink}{websiteLink}</>);
 
     return (
-        <Box border={2} height="100%">
+        <Box border={2} height="100%" backgroundColor="rgba(0, 0, 0, 0.7)" color="#C9D6EA">
             <Box margin={2}>
 
                 <Box display="inline">
@@ -77,16 +86,18 @@ function ProjectGridItem({ project })
     );
 
     return (
-        <Grid item 
-          xs={12}
-          sm={12}
-          md={6}
-          lg={6}
-          xl={4}
-          className="Project-Grid-Item" 
-          onClick={openPreview}
-          children={<ProjectBox project={project} preview={preview} />}
-        /> 
+        <ThemeProvider theme={darkTheme}>
+            <Grid item 
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+              xl={4}
+              className="Project-Grid-Item" 
+              onClick={openPreview}
+              children={<ProjectCard project={project} preview={preview} />}
+            /> 
+        </ThemeProvider>
     );
 }
 
