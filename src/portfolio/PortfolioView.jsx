@@ -66,7 +66,7 @@ function PortfolioHeader({ portfolioBodyRef })
             <Box textAlign="center" width="100%" height="500px">
                 <ScrolldownButton 
                   title="portfolio"
-                  onClick={()=>portfolioBodyRef.current.scrollIntoView()}
+                  onClick={()=>portfolioBodyRef.current.scrollIntoView(true)}
                 />
             </Box>
         );
