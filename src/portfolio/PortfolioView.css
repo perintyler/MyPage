@@ -1,3 +1,29 @@
+/*** PortfolioView.css ***/
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+#portfolio-header #hi {
+    font-family: 'Quicksand', 'Bold 700', sans-serif;
+    font-weight: 700;
+    font-size: 5em;
+    padding-right: 22px;
+}
+
+#portfolio-header #hi #wave-emoji {
+    margin-left: 10px;
+}
+
+#portfolio-header #reach-me {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
+#portfolio-header #reach-me #my-email {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: #00DB86;
+    margin-left: 10px;
+}
 
 .Project-Grid-Item {
     border-color: black;

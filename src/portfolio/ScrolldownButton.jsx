@@ -29,15 +29,31 @@ function AnimatedArrows()
     );
 }
 
-export default function ScrolldownButton({ title })
+function ScrolldownButtonTitle({ title })
+{
+    return (
+      <Typography 
+        className="scrolldown-button-title" 
+        zIndex="5" 
+        ml="5px" 
+        mt="70px" 
+        color="white" 
+        fontSize="1.8em"
+        children={title}
+      />
+    );
+}
+
+export default function ScrolldownButton({ title, onClick })
 {
   return (
-    <GlowingBlueCircle>
-      <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-        <Typography className="scrolldown-button-title" zIndex="5" ml="6px" mt="70px" color="white" fontSize="1.8em">{title}</Typography>
-        <Box mt="75px"><AnimatedArrows /></Box>
-      </Box>
-
-    </GlowingBlueCircle>
+    <Box onClick={()=>onClick()}>
+      <GlowingBlueCircle>
+        <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+          <ScrolldownButtonTitle title={title} />
+          <Box mt="75px"><AnimatedArrows /></Box>
+        </Box>
+      </GlowingBlueCircle>
+    </Box>
   );
 }

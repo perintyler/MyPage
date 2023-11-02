@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
@@ -18,15 +18,21 @@ const darkTheme = createTheme({
   },
 });
 
-function PortfolioHeader()
+function PortfolioHeader({ portfolioBodyRef })
 {
     function GreetingBox()
-    {
+    {        
         return (
-            <Box sx={{textAlign: "center"}} pt="8%">
-                <Typography variant="h2" color="white" pl="22px"><b>Hi 👋</b></Typography>
-                <Typography variant="h4" pr="12px" pt={4} pb={5} color="white">
-                    You can reach me at <Link href="mailto: tyler@perin.email" color="#00DB86">tyler@perin.email</Link> 
+            <Box sx={{textAlign: "center"}} pt="8%" ml="36px" mr="36px">
+                <Typography id="hi" variant="h2" color="white" ml="34px">
+                    Hi 
+                    <span id="wave-emoji">👋</span>
+                </Typography>
+                <Typography id="reach-me" variant="h4" pl="5px" pt={4} pb="10px" color="white">
+                    You can reach me at 
+                    <Link id="my-email" href="mailto: tyler@perin.email">
+                        tyler@perin.email
+                    </Link> 
                 </Typography>
             </Box>
         )
@@ -58,13 +64,16 @@ function PortfolioHeader()
     {
         return (
             <Box textAlign="center" width="100%" height="500px">
-                <ScrolldownButton title="portfolio" />
+                <ScrolldownButton 
+                  title="portfolio"
+                  onClick={()=>portfolioBodyRef.current.scrollIntoView()}
+                />
             </Box>
         );
     }
 
     return (
-        <Box backgroundColor="black" color="#00DB86" minHeight="100vh">
+        <Box id="portfolio-header" backgroundColor="black" color="#00DB86" minHeight="100vh">
             <NavBar />
             <GreetingBox />
             <ProjectsButton />
@@ -72,7 +81,7 @@ function PortfolioHeader()
     );
 }
 
-function PortfolioBody()
+function PortfolioBody({ reference })
 {
     var titleBar = (
         <Box 
@@ -105,7 +114,7 @@ function PortfolioBody()
         </Box>
     );
 
-    return <>{titleBar}{projectsBox}</>;
+    return <div ref={reference}>{titleBar}{projectsBox}</div>;
 }
 
 function PortfolioFooter()
@@ -130,13 +139,15 @@ function PortfolioFooter()
 
 export default function PortfolioView()
 {
+    const portfolioBodyRef = useRef(null);
+
     return (
         <Box id="portfolio-view" minHeight="100vh" backgroundColor="#00DB86">
             <FadeInContainer>
                 <ThemeProvider theme={darkTheme}>
-                    <PortfolioHeader />
+                    <PortfolioHeader portfolioBodyRef={portfolioBodyRef} />
                     <BlueAndRedBackdrop>
-                        <PortfolioBody />
+                        <PortfolioBody reference={portfolioBodyRef} />
                         <PortfolioFooter />
                     </BlueAndRedBackdrop>
                 </ThemeProvider>
