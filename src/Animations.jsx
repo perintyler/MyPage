@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Slide } from '@mui/material';
 
 export function FadeInContainer(props)
 {
