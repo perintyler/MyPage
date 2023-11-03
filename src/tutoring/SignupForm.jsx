@@ -137,7 +137,7 @@ function ContactInputBox({ signupInfo, stepBack, stepForward })
         <SignupStepContainer 
           stepBack={stepBack} 
           title="How can I reach you?" 
-          subtitle="Add a message if you there's anything else you'd like to tell me"
+          subtitle="Add a message if there's anything else you'd like to tell me"
           margin="0px"
         >
             <ContactForm 
