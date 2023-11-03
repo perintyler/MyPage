@@ -6,6 +6,7 @@
 
 .scrolldown-button-title {
   font-family: 'Space Mono', monospace !important; 
+  user-select: none;
 }
 
 .glowing-orb {
@@ -70,7 +71,6 @@
 .glow .hinge {
   -webkit-animation-duration: 4s;
           animation-duration: 4s;
-  animation-delay: 2s;
   animation-iteration-count: infinite;
   transition-timing-function: ease-out;
 }
