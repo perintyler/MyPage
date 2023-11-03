@@ -85,7 +85,7 @@ export default function ContactView()
 
   return (
     <ContactViewContainer>
-      <h1 style={{marginTop: 0, textAlign: "center"}}>Contact</h1>
+      <h1 style={{marginTop: 0, textAlign: "center", userSelect: "none"}}>Contact</h1>
       <ContactForm
         buttonTitle="send"
         onComplete={(contactInfo) => handleSubmission(contactInfo)}
