@@ -44,7 +44,7 @@ function PortfolioHeader({ portfolioBodyRef })
                 <Typography fontSize="2.5rem" id="reach-me" variant="h4" pl="5px" pt={4} pb="10px" color="white">
                     You can reach me at 
                 </Typography>
-                <Link fontSize="2.2rem" pl="5px" pt={4} pb="10px" id="my-email" href="mailto: tyler@perin.email">
+                <Link color="#00DB86" fontSize="2.2rem" pl="5px" pt={4} pb="10px" id="my-email" href="mailto: tyler@perin.email">
                     tyler@perin.email
                 </Link>
             </Box>

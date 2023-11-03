@@ -7,20 +7,22 @@
     font-weight: 700;
     font-size: 5em;
     padding-right: 22px;
+    user-select: none;
 }
 
-#portfolio-header #hi #wave-emoji {
+#portfolio-header #wave-emoji {
+    padding-left: 20px;
 }
 
 #portfolio-header #reach-me {
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
+    user-select: none;
 }
 
 #portfolio-header #my-email {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
-    color: #00DB86;
 }
 
 #portfolio-body-title {
