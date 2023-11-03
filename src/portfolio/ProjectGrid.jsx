@@ -37,21 +37,25 @@ function ProjectCard({ project, preview })
 
     const projectDescription = <Typography>{project.description}</Typography>;
 
-    const githubLink = (
-        <Button>
-            <Link color="rgba(247, 179, 43, 0.9)" href={project.repoUrl}>Github Repo</Link>
-        </Button>
-    );
+    var links = [];
 
-    const websiteLink = (
-        <Button>
-            <Link color="rgba(247, 179, 43, 0.9)" href={project.websiteUrl}>Website</Link>
-        </Button>
-    );
+    if (project.hasRepo()) {
+        links.push(
+            <Button key="repo">
+                <Link color="rgba(247, 179, 43, 0.9)" href={project.repoUrl}>Github Repo</Link>
+            </Button>
+        );
+    }
+
+    if (project.hasWebsite()) {
+        links.push(
+            <Button key="website">
+                <Link color="rgba(247, 179, 43, 0.9)" href={project.websiteUrl}>Website</Link>
+            </Button>
+        );
+    }
 
     const skillGrid = <SkillGrid languages={project.languages} frameworks={project.frameworks} />;
-
-    const links = project.websiteUrl === null ? (<>{githubLink}</>) : (<>{githubLink}{websiteLink}</>);
 
     let cardStyle = {
         backgroundColor: 'rgba(0, 0, 0, 0.72)',
@@ -66,10 +70,7 @@ function ProjectCard({ project, preview })
     return (
         <Box border={2} height="100%" sx={cardStyle} borderRadius="4px">
             <Box margin={2}>
-
-                <Box display="inline">
-                    {projectTitle}
-                </Box>
+                <Box display="inline">{projectTitle}</Box>
                 <Box paddingTop={1}>{projectDescription}</Box>
                 <Box marginTop={1} display="flex" justifyContent="center">{links}</Box>
             </Box>

@@ -1,5 +1,11 @@
 /* Projects.js */
 
+//
+// TODO:
+//  - read project data from a JSON file instead of instantiating 
+//    all the `Project` instances below
+//
+
 class Project 
 {
     constructor(name, description, year, languages, frameworks, preview, repoUrl, websiteUrl = null) {
@@ -12,10 +18,8 @@ class Project
         this.websiteUrl = websiteUrl;
     }
 
-    hasWebsite()
-    {
-        return this.repoUrl !== null;
-    }
+    hasWebsite() { return this.websiteUrl !== null; }
+    hasRepo() { return this.repoUrl !== null; }
 }
 
 const PROJECTS = [
@@ -38,13 +42,13 @@ const PROJECTS = [
         ['Ruby on Rails', 'Javascript'],
         ['PostgreSQL', 'Redis'],
         'TP.png',
-        'https://www.sellwithathlete.com/',
+        null, // it's a private repository
         'https://www.sellwithathlete.com/'
     ),
 
     new Project(
         'MySampler',
-        'A cross platform audio plugin / virtual keyboard (C++) where each MIDI key plays a different random sample',
+        'A cross platform audio plugin / virtual keyboard where each MIDI key plays a different random sample',
         2023,
         ['C++', 'Python', 'Bash'],
         ['CMake', 'TensorFlow', 'CI'],
@@ -63,14 +67,13 @@ const PROJECTS = [
     ),
 
     new Project(
-        'Crypto Recommendations (www.crypto-book.xyz)',
-        'Realtime cryptocurrency purchase recommendations powered by websockets',
+        'pychessengine',
+        'A python chess engine with minimax, alpha-beta pruning, magic bitboards, MVV-LVA, Zobrist Hashing, and a custom heurstics function for positional evaluation',
         2021,
-        ['Python', 'Node'],
-        ['WebSockets', 'GCP', 'React', 'Flask'],
+        ['Python'],
+        [],
         'TP.png',
-        'https://github.com/perintyler/Crypto-Recommendations',
-        'https://crypto-books.xyz'
+        'https://github.com/perintyler/pychessengine'
     ),
 
     new Project(
@@ -95,6 +98,17 @@ const PROJECTS = [
     ),
 
     new Project(
+        'Crypto Recommendations (www.crypto-book.xyz)',
+        'Realtime cryptocurrency purchase recommendations powered by websockets',
+        2021,
+        ['Python', 'Node'],
+        ['WebSockets', 'GCP', 'React', 'Flask'],
+        'TP.png',
+        'https://github.com/perintyler/Crypto-Recommendations',
+        'https://crypto-books.xyz'
+    ),
+
+    new Project(
         'PyObjectValidation',
         'A library for defining type-safe schemas, allowing for seamless serialization and deserialization of Python objects',
         2021,
@@ -105,7 +119,7 @@ const PROJECTS = [
     ),
 
     new Project(
-        'Poetry File Parser (www.poetryparser.com)',
+        'Poetry File Parser',
         'A React web-app that parses Poetry files to visualize a dependency tree that you can click through',
         2023,
         ['Node'],
@@ -113,16 +127,6 @@ const PROJECTS = [
         'TP.png',
         'https://github.com/perintyler/Poetry-File-Parser',
         'https://poetryparser.com'
-    ),
-
-    new Project(
-        'pychessengine',
-        'A python chess engine with minimax, alpha-beta pruning, magic bitboards, MVV-LVA, Zobrist Hashing, and a custom heurstics function for positional evaluation',
-        2021,
-        ['Python'],
-        [],
-        'TP.png',
-        'https://github.com/perintyler/pychessengine'
     ),
 
     new Project(
