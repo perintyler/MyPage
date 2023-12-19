@@ -51,7 +51,7 @@ const PROJECTS = [
         'A cross platform audio plugin / virtual keyboard where each MIDI key plays a different random sample',
         2023,
         ['C++', 'Python', 'Bash'],
-        ['CMake', 'TensorFlow', 'CI'],
+        ['CMake', 'TensorFlow'],
         'TP.png',
         'https://github.com/perintyler/MySampler'
     ),
@@ -68,7 +68,7 @@ const PROJECTS = [
 
     new Project(
         'pychessengine',
-        'A python chess engine with minimax, alpha-beta pruning, magic bitboards, MVV-LVA, Zobrist Hashing, and a custom heurstics function for positional evaluation',
+        'A python chess engine with minimax, alpha-beta pruning, magic bitboards, MVV-LVA, Zobrist Hashing, and a custom heuristics function for positional evaluation',
         2021,
         ['Python'],
         [],
@@ -109,16 +109,6 @@ const PROJECTS = [
     ),
 
     new Project(
-        'PyObjectValidation',
-        'A library for defining type-safe schemas, allowing for seamless serialization and deserialization of Python objects',
-        2021,
-        ['Python'],
-        ['pytest'],
-        'TP.png',
-        'https://github.com/perintyler/PyObjectValidation'
-    ),
-
-    new Project(
         'Poetry File Parser',
         'A React web-app that parses Poetry files to visualize a dependency tree that you can click through',
         2023,
@@ -137,16 +127,6 @@ const PROJECTS = [
         ['pytest'],
         'TP.png',
         'https://github.com/perintyler/tpkit'
-    ),
-
-    new Project(
-        'NBA Prediction',
-        'Scrapes data from basketball-reference.com and uses a neural net to predict the results of NBA games',
-        2020,
-        ['Python'],
-        ['Tensorflow'],
-        'TP.png',
-        'https://github.com/perintyler/nba_prediction'
     ),
 
     new Project(
