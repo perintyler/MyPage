@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { onClickLogger } from '../Analytics';
 
 const darkTheme = createTheme({
   palette: {
@@ -41,7 +42,7 @@ function ProjectCard({ project, preview })
 
     if (project.hasRepo()) {
         links.push(
-            <Button key="repo">
+            <Button key="repo" onClick={onClickLogger('repo-link', project.name, ()=>{})}>
                 <Link color="rgba(247, 179, 43, 0.9)" href={project.repoUrl}>Github Repo</Link>
             </Button>
         );
@@ -49,7 +50,7 @@ function ProjectCard({ project, preview })
 
     if (project.hasWebsite()) {
         links.push(
-            <Button key="website">
+            <Button key="website" onClick={onClickLogger('button-link', project.name, ()=>{})}>
                 <Link color="rgba(247, 179, 43, 0.9)" href={project.websiteUrl}>Website</Link>
             </Button>
         );

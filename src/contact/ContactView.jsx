@@ -9,6 +9,7 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import { ContactForm } from './ContactForm';
+import { usePageViewLogger } from '../Analytics';
 import { TealBackdrop } from '../Backdrops'
 import EmailApi from '../EmailApi';
 import './ContactView.css';
@@ -41,9 +42,7 @@ function ContactViewContainer({ children })
 {
   var contactCard = (
     <ThemeProvider theme={darkTheme}>
-      <Box ml="12px" mr="12px" mt="100px" mb="100px">
-        <Card className="contact-card">{children}</Card>
-      </Box>
+      <Card className="contact-card">{children}</Card>
     </ThemeProvider>
   );
 
@@ -65,20 +64,27 @@ function ContactViewContainer({ children })
 
 export default function ContactView()
 {
+  usePageViewLogger('contact');
+
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [formIsDisabled, setFormIsDisabled] = useState(false);
 
   function resetState() {
     setIsDialogOpen(false);
     setSuccess(false);
+    setFormIsDisabled(false);
   }
 
   function handleSubmission(contactInfo) {
+    setFormIsDisabled(true);
     EmailApi.new_message(contactInfo, function onSuccess() {
       setSuccess(true);
+      setFormIsDisabled(false);
       setIsDialogOpen(true);
     }, function onFailure() {
       setSuccess(false);
+      setFormIsDisabled(false);
       setIsDialogOpen(true);
     });
   }
@@ -90,7 +96,9 @@ export default function ContactView()
         buttonTitle="send"
         onComplete={(contactInfo) => handleSubmission(contactInfo)}
         msgIsRequired={true}
-        phoneIsRequired={false}
+        askForPhone={false} 
+        numMessageRows={12}
+        isDisabled={formIsDisabled}
       />
       <EmailSentDialog show={isDialogOpen} success={success} onClose={()=>resetState()} />
     </ContactViewContainer>

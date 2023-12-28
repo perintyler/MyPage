@@ -50,7 +50,7 @@ class SignupInfo
 }
 
 function SignupStepContainer({ title, subtitle, children, stepBack, margin })
-{
+{    
     var backArrow = stepBack === undefined ? <Box className="back-arrow" /> : (
         <IconButton className="back-arrow" onClick={()=>stepBack()} >
             <ArrowBackIcon/>
@@ -142,8 +142,8 @@ function ContactInputBox({ signupInfo, stepBack, stepForward })
         >
             <ContactForm 
               buttonTitle="Complete Signup" 
-              msgIsRequired={false} 
-              phoneIsRequired={true}
+              msgIsRequired={false}
+              askForPhone={true}
               onComplete={(contactInfo) => {
                 signupInfo.current.contactInfo = contactInfo;
                 stepForward();

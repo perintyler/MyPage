@@ -6,6 +6,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { animateScroll } from 'react-scroll';
 import { BlueAndRedBackdrop } from '../Backdrops';
+import { usePageViewLogger } from '../Analytics';
 import { FadeInContainer } from '../Animations';
 import { ReactComponent as GithubIcon } from './github.svg';
 import ProjectGrid from './ProjectGrid'
@@ -55,8 +56,8 @@ function PortfolioHeader({ portfolioBodyRef })
     {
         const githubIconSize = "50px";
         const githubIconStyle = {
-            color: "#FFD23F", 
-            "&:hover": {color: "#00A5CF"}, 
+            color: "#00A5CF", 
+            "&:hover": {color: "#FFD23F"}, 
             textAlign: "center", 
             width: githubIconSize, 
             height: githubIconSize
@@ -155,6 +156,8 @@ function PortfolioFooter()
 
 export default function PortfolioView()
 {
+    usePageViewLogger('Portfolio');
+
     const portfolioBodyRef = useRef(null);
 
     return (

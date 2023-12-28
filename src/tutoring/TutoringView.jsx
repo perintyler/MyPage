@@ -3,6 +3,7 @@ import { useState } from "react";
 import Box from '@mui/material/Box';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { RedBackdrop } from '../Backdrops';
+import { usePageViewLogger } from '../Analytics';
 import TutoringServicesList from './TutoringServicesList'
 import SignupForm from './SignupForm';
 import './NumberedList.css';
@@ -36,6 +37,8 @@ function TutoringViewContent({ isSigningUp, startSignup, cancelSignup, completeS
 
 export default function TutoringView()
 {
+    usePageViewLogger('tutoring');
+
     const [isSigningUp, setIsSigningUp] = useState(false);
     
     var openSignupForm = () => setIsSigningUp(true);
