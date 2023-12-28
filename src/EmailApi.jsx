@@ -18,12 +18,10 @@ const EMAIL_SERVICE_CONFIG = {
 function send_email(templateName, templateParams, onSuccess, onFailure)
 {
     function errorCallback(error) {
-        console.log('failed to send email', error,`(template='${templateName}')`, `(params='${templateParams}')`);
         onFailure();
     }
 
     function successCallback(response) {
-        console.log('successfully sent email', response.status, response.text);
         onSuccess();
     }
 
@@ -37,13 +35,11 @@ function send_email(templateName, templateParams, onSuccess, onFailure)
 
 function new_message(contactInfo, onSuccess, onFailure) 
 {
-  console.log(`New Message: ${contactInfo.pretty()}`);
   send_email(EMAIL_SERVICE_CONFIG.NEW_MESSAGE_TEMPLATE_ID, contactInfo.to_object(), onSuccess, onFailure);
 }
 
 function new_tutoring_signup(signupInfo, onSuccess, onFailure) 
 {
-  console.log(`New Signup: ${signupInfo.pretty()}`);
   send_email(EMAIL_SERVICE_CONFIG.NEW_SIGNUP_TEMPLATE_ID, signupInfo.to_object(), onSuccess, onFailure);
 }
 
