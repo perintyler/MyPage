@@ -7,6 +7,7 @@ import TutoringView from './tutoring/TutoringView';
 import ContactView from './contact/ContactView';
 import CircularMenu from './CircularMenu';
 import A404Page from './A404Page';
+import './Analytics';
 import './index.css';
 
 function Layout()
