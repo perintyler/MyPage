@@ -3,9 +3,16 @@
 import { useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
 
-class ContactInfo {
-  constructor(name, email, message, phoneNumber=null) {
-    this.name = name;
+class ContactInfo 
+{
+  constructor(name, email, message, phoneNumber=null) 
+  {
+    if (process.env.ENVIRONMENT === 'development') {
+      this.name = `${name} (development)`;
+    } else {
+      this.name = name;
+    }
+
     this.email = email;
     this.message = message;
     this.phoneNumber = phoneNumber;
@@ -31,7 +38,7 @@ class ContactInfo {
   }
 }
 
-export function ContactForm({ title, onComplete, buttonTitle, children, msgIsRequired, phoneIsRequired }) 
+export function ContactForm({ title, onComplete, buttonTitle, children, msgIsRequired, askForPhone, numMessageRows, width, isDisabled }) 
 {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -47,8 +54,19 @@ export function ContactForm({ title, onComplete, buttonTitle, children, msgIsReq
     setMessage("");
   };
 
+  var phoneNumberTextField = askForPhone !== true ? <></> : (
+    <TextField
+      fullWidth
+      label="Phone Number"
+      value={phoneNumber}
+      onChange={(e) => setPhoneNumber(e.target.value)}
+      margin="normal"
+      required={true}
+    />
+  );
+
   return (
-    <Box sx={{ maxWidth: 600 }} pb={2} className="contact-form">
+    <Box className="contact-form" maxWidth="800px" pb={2}>
       <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
@@ -67,14 +85,7 @@ export function ContactForm({ title, onComplete, buttonTitle, children, msgIsReq
           type="email"
           required
         />
-        <TextField
-          fullWidth
-          label="Phone Number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          margin="normal"
-          required={phoneIsRequired}
-        />
+        {phoneNumberTextField}
         <TextField
           fullWidth
           label="Message"
@@ -82,10 +93,17 @@ export function ContactForm({ title, onComplete, buttonTitle, children, msgIsReq
           onChange={(e) => setMessage(e.target.value)}
           margin="normal"
           multiline
-          minRows={6}
+          minRows={numMessageRows || 6}
           required={msgIsRequired || false}
         />
-        <Button fullWidth={true} variant="contained" type="submit" sx={{ mt: 2 }}>{buttonTitle || "submit"}</Button>
+        <Button 
+          disabled={isDisabled} 
+          fullWidth={true} 
+          variant="contained" 
+          type="submit" 
+          sx={{ mt: 2 }}
+          children={buttonTitle || "submit"}
+        />
       </form>
     </Box>
   );
